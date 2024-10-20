@@ -11,16 +11,19 @@
 
 
         <!--En label med namnet av appen/hemsidan (FitTrack)-->
-        <Label x:Name="LabelTitle" Content="FitTrack" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"  FontFamily="Arial" Margin="282,101,0,0" RenderTransformOrigin="0.5,0.5" Width="269" HorizontalContentAlignment="Center" BorderThickness="5" BorderBrush="Black"/>
+        <Label x:Name="LabelTitle" Content="FitTrack" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"  FontFamily="Arial" Margin="0,101,0,0" RenderTransformOrigin="0.5,0.5" Width="269" HorizontalContentAlignment="Center" BorderThickness="5" BorderBrush="Black"/>
 
         <!--En textbox med en text ovan som försvinner när text kommer in i TextBoxen-->
-        <TextBox x:Name="UsernameInput" HorizontalAlignment="Left" Margin="201,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="40" BorderBrush="Black" MouseEnter="UsernameInput_MouseEnter" MouseLeave="UsernameInput_MouseLeave" TextAlignment="Center" TextChanged="UsernameInput_TextChanged"/>
-        <TextBlock x:Name="UsernameInputTEXT" Text="Username" HorizontalAlignment="Left" Margin="201,220,0,0" TextAlignment="Center" VerticalAlignment="Top" Width="162" Foreground="Gray" Height="39" MouseEnter="UsernameInputTEXT_MouseEnter" MouseLeave="UsernameInputTEXT_MouseLeave"  />
+        <TextBox x:Name="UsernameInput" HorizontalAlignment="Left" Margin="157,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="40" BorderBrush="Black" MouseEnter="UsernameInput_MouseEnter" MouseLeave="UsernameInput_MouseLeave" TextAlignment="Center" TextChanged="UsernameInput_TextChanged"/>
+        <TextBlock x:Name="UsernameInputTEXT" Text="Username" HorizontalAlignment="Left" Margin="157,220,0,0" TextAlignment="Center" VerticalAlignment="Top" Width="162" Foreground="Gray" Height="39" MouseEnter="UsernameInputTEXT_MouseEnter" MouseLeave="UsernameInputTEXT_MouseLeave"  />
 
 
         <!--En PasswordBox för att ta emot lösenord och och spara det. Samma placeholder funktion som username.-->
-        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Right" Margin="0,220,155,0" VerticalAlignment="Top" Width="162" Height="40" BorderBrush="Black" MouseEnter="PasswordInput_MouseEnter" MouseLeave="PasswordInput_MouseLeave" PasswordChanged="PasswordInput_PasswordChanged" />
-        <TextBlock x:Name="PasswordInputTEXT" Text="Password" HorizontalAlignment="Right" Margin="0,220,155,0" VerticalAlignment="Top" Width="162" Height="40" Foreground="Gray" TextAlignment="Center" MouseEnter="PasswordInputTEXT_MouseEnter" MouseLeave="PasswordInputTEXT_MouseLeave"/>
+        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Right" Margin="0,220,168,0" VerticalAlignment="Top" Width="162" Height="40" BorderBrush="Black" MouseEnter="PasswordInput_MouseEnter" MouseLeave="PasswordInput_MouseLeave" PasswordChanged="PasswordInput_PasswordChanged" />
+        <TextBlock x:Name="PasswordInputTEXT" Text="Password" HorizontalAlignment="Right" Margin="0,220,168,0" VerticalAlignment="Top" Width="162" Height="40" Foreground="Gray" TextAlignment="Center" MouseEnter="PasswordInputTEXT_MouseEnter" MouseLeave="PasswordInputTEXT_MouseLeave"/>
+        
+        <!--En knapp som försöker logga in med respektive uppgifter-->
+        <Button x:Name="LoginButton" Content="Press to Login" HorizontalAlignment="Center" Margin="0,295,0,0" VerticalAlignment="Top" Height="39" Width="120" Background="White" FontFamily="Arial" Click="LoginButton_Click"/>
 
 
 

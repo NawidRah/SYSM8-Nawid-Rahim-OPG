@@ -32,7 +32,14 @@ namespace FitTrack
 
         private void UsernameInput_MouseLeave(object sender, MouseEventArgs e)
         {
-            UsernameInputTEXT.Visibility = Visibility.Visible;
+
+            if (sender is TextBox box)
+            {
+                if (string.IsNullOrEmpty(box.Text))
+                {
+                    UsernameInputTEXT.Visibility = Visibility.Visible;
+                }
+            }
 
         }
 
@@ -44,7 +51,13 @@ namespace FitTrack
 
         private void UsernameInputTEXT_MouseLeave(object sender, MouseEventArgs e)
         {
-            UsernameInputTEXT.Visibility = Visibility.Visible;
+            if (sender is TextBox box)
+            {
+                if (string.IsNullOrEmpty(box.Text))
+                {
+                    UsernameInputTEXT.Visibility = Visibility.Visible;
+                }
+            }
         }
 
         private void UsernameInput_TextChanged(object sender, TextChangedEventArgs e)
@@ -72,7 +85,16 @@ namespace FitTrack
 
         private void PasswordInput_MouseLeave(object sender, MouseEventArgs e)
         {
-            PasswordInputTEXT.Visibility = Visibility.Visible;
+            if (sender is PasswordBox pass)
+            {
+                {
+                    if (string.IsNullOrEmpty(pass.Password))
+                        {
+                        PasswordInputTEXT.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+            
         }
 
         private void PasswordInput_PasswordChanged(object sender, RoutedEventArgs e)
@@ -98,8 +120,41 @@ namespace FitTrack
 
         private void PasswordInputTEXT_MouseLeave(object sender, MouseEventArgs e)
         {
+            if (sender is PasswordBox pass)
+            {
+                if (string.IsNullOrEmpty (pass.Password))
+                {  
+                    PasswordInputTEXT.Visibility = Visibility.Visible;
+                }
+                
+            }
             
-            PasswordInputTEXT.Visibility = Visibility.Visible;
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e) 
+        {
+            
+            string Username = UsernameInput.Text;
+            string Password = PasswordInput.Password;
+
+            if (Username == "Admin" && Password == "1234")
+            {
+                MessageBox.Show("Login sucessful!");
+
+                RegisterWindow registerWindow = new RegisterWindow();
+                registerWindow.Show();
+
+                
+
+                
+            }
+            else
+            {
+                MessageBox.Show("Incorrect password!");
+            }
+
+
+
         }
     }
 }
