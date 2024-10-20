@@ -22,6 +22,8 @@ namespace FitTrack
         }
 
 
+        //Username input och placeholder effekt för Username textboxen.
+
         private void UsernameInput_MouseEnter(object sender, MouseEventArgs e)
         {
 
@@ -77,6 +79,8 @@ namespace FitTrack
 
         }
 
+
+        //Password input och placeholder för passwordbox
         private void PasswordInput_MouseEnter(object sender, MouseEventArgs e)
         {
             PasswordInputTEXT.Visibility = Visibility.Collapsed;
@@ -131,6 +135,8 @@ namespace FitTrack
             
         }
 
+
+        //Login knapp som registrerar inlogg och verifierar om det är rätt. Sedan förs användaren till WorkoutsWindow där användaren kan använda appen.
         private void LoginButton_Click(object sender, RoutedEventArgs e) 
         {
             
@@ -141,9 +147,10 @@ namespace FitTrack
             {
                 MessageBox.Show("Login sucessful!");
 
-                RegisterWindow registerWindow = new RegisterWindow();
-                registerWindow.Show();
+                WorkoutsWindow workoutWindow = new WorkoutsWindow();
+                workoutWindow.Show();
 
+                Close();
                 
 
                 
@@ -153,6 +160,17 @@ namespace FitTrack
                 MessageBox.Show("Incorrect password!");
             }
 
+
+
+        }
+        //Register knapp som tar användaren till RegisterWindow där en profil kan skapas.
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+
+            Close();
 
 
         }

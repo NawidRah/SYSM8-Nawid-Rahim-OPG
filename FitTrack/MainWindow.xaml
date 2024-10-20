@@ -23,7 +23,11 @@
         <TextBlock x:Name="PasswordInputTEXT" Text="Password" HorizontalAlignment="Right" Margin="0,220,168,0" VerticalAlignment="Top" Width="162" Height="40" Foreground="Gray" TextAlignment="Center" MouseEnter="PasswordInputTEXT_MouseEnter" MouseLeave="PasswordInputTEXT_MouseLeave"/>
         
         <!--En knapp som försöker logga in med respektive uppgifter-->
-        <Button x:Name="LoginButton" Content="Press to Login" HorizontalAlignment="Center" Margin="0,295,0,0" VerticalAlignment="Top" Height="39" Width="120" Background="White" FontFamily="Arial" Click="LoginButton_Click"/>
+        <Button x:Name="LoginButton" Content="Press to Login" HorizontalAlignment="Center" Margin="0,295,0,0" VerticalAlignment="Top" Height="39" Width="120" Background="White" FontFamily="Arial" Click="LoginButton_Click" BorderBrush="Black"/>
+       
+        
+        <!--Registrerings knapp som tar en till RegisterWindow, där man kan skapa en användare.-->
+        <Button x:Name="RegisterButton" Content="Register" HorizontalAlignment="Left" Margin="62,44,0,0" VerticalAlignment="Top" Height="42" Width="125" Background="White" FontFamily="Arial" Click="RegisterButton_Click" />
 
 
 
