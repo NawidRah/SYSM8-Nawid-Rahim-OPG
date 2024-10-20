@@ -22,6 +22,46 @@ namespace FitTrack
         }
 
 
+        private void UsernameInput_MouseEnter(object sender, MouseEventArgs e)
+        {
 
+            UsernameInputTEXT.Visibility = Visibility.Collapsed;
+
+
+        }
+
+        private void UsernameInput_MouseLeave(object sender, MouseEventArgs e)
+        {
+            UsernameInputTEXT.Visibility = Visibility.Visible;
+
+        }
+
+        private void UsernameInputTEXT_MouseEnter(object sender, MouseEventArgs e)
+        {
+            UsernameInputTEXT.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void UsernameInputTEXT_MouseLeave(object sender, MouseEventArgs e)
+        {
+            UsernameInputTEXT.Visibility = Visibility.Visible;
+        }
+
+        private void UsernameInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (sender is TextBox UserName)
+            {
+                if (string.IsNullOrEmpty(UserName.Text))
+                {
+                    UsernameInputTEXT.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    UsernameInputTEXT.Visibility = Visibility.Collapsed;
+                }
+            }
+
+        }
     }
 }
