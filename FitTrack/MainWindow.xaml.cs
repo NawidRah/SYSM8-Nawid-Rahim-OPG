@@ -163,6 +163,12 @@ namespace FitTrack
 
 
         }
+
+
+
+
+
+
         //Register knapp som tar användaren till RegisterWindow där en profil kan skapas.
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
@@ -174,5 +180,12 @@ namespace FitTrack
 
 
         }
+
+        public void Register() //SKRIV DENNA!
+        {
+
+        }
+        
+
     }
 }
