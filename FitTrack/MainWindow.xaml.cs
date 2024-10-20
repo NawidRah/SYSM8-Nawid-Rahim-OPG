@@ -63,5 +63,43 @@ namespace FitTrack
             }
 
         }
+
+        private void PasswordInput_MouseEnter(object sender, MouseEventArgs e)
+        {
+            PasswordInputTEXT.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void PasswordInput_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PasswordInputTEXT.Visibility = Visibility.Visible;
+        }
+
+        private void PasswordInput_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender is PasswordBox Pass)
+            {
+                if (string.IsNullOrEmpty(Pass.Password))
+                {
+                    PasswordInputTEXT.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    PasswordInputTEXT.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void PasswordInputTEXT_MouseEnter(object sender, MouseEventArgs e)
+        {
+            PasswordInputTEXT.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void PasswordInputTEXT_MouseLeave(object sender, MouseEventArgs e)
+        {
+            
+            PasswordInputTEXT.Visibility = Visibility.Visible;
+        }
     }
 }
