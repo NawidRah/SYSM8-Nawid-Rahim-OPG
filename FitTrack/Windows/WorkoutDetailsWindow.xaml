@@ -6,7 +6,53 @@
         xmlns:local="clr-namespace:FitTrack.Windows"
         mc:Ignorable="d"
         Title="WorkoutDetailsWindow" Height="450" Width="800">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#D3D3D3" Offset="0.0" />
+            <GradientStop Color="Black" Offset="2.0" />
+        </LinearGradientBrush>
+    </Window.Background>
+
     <Grid>
-        
+
+        <!-- Titel -->
+        <Label Content="Workout Details" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+        <!-- Datum -->
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="400" Margin="34,67,0,0">
+            <Label Content="Date:" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <DatePicker x:Name="WorkoutDateInput" Height="30" SelectedDate="{Binding Date}" />
+
+            <!-- Typ av träningspass -->
+            <Label Content="Workout Type:" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBox x:Name="WorkoutTypeInput"  IsReadOnly="True" Height="30" Margin="0,5,0,10"/>
+
+            <!-- Specifik detalj beroende på Cardio/Strength -->
+            <Label Content="Details:" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBox x:Name="WorkoutDetailsInput" Height="30" Margin="0,5,0,10" IsReadOnly="True"/>
+
+            <!-- Brända kalorier -->
+            <Label Content="Calories Burned:" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBox x:Name="CaloriesBurnedInput"  IsReadOnly="True" Height="30" Margin="0,5,0,10"/>
+        </StackPanel>
+
+
+        <!-- Knappar för att redigera och spara -->
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="504,102,0,0" Height="322" Width="158">
+            <Button x:Name="EditBtn" Content="Edit" Width="80" Height="62" Margin="5" Click="EditBtn_Click" Background="DarkCyan" Foreground="White"/>
+            <Button x:Name="SaveBtn" Content="Save" Width="80" Height="59" Margin="5" Click="SaveBtn_Click" Background="DarkCyan" Foreground="White"/>
+
+            <!-- avbryt knapp -->
+
+
+            <Button x:Name="CancelBtn" Content="Cancel" Width="80" Height="70" Margin="5" Click="CancelBtn_Click" Background="DarkCyan" Foreground="White"/>
+
+            <!-- knapp för kopiera pass -->
+        </StackPanel>
+
+
+
+
     </Grid>
 </Window>

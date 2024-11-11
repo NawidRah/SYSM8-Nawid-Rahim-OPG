@@ -6,7 +6,47 @@
         xmlns:local="clr-namespace:FitTrack.Windows"
         mc:Ignorable="d"
         Title="AddWorkoutWindow" Height="450" Width="800">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#D3D3D3" Offset="0.0" />
+            <GradientStop Color="Black" Offset="2.0" />
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+
     <Grid>
-        
+
+
+        <!-- Titel -->
+        <Label Content="Add a Workout" FontSize="30" FontWeight="Bold" 
+                       HorizontalAlignment="Left" Margin="295,128,0,245" Width="237"/>
+
+        <!-- Välj typ av träningspass (Cardio eller Strength) -->
+        <ComboBox x:Name="WorkoutTypeComboBox" Width="200" Height="30" Margin="0,243,0,161" HorizontalAlignment="Center" SelectionChanged="WorkoutTypeComboBox_SelectionChanged">
+            <ComboBoxItem Content="Cardio"/>
+            <ComboBoxItem Content="Strength"/>
+        </ComboBox>
+
+        <!-- Visar text som beskriver informationen som behövs för träningspasset -->
+        <Label x:Name="DetailsLabel" Content="" FontSize="14" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+
+
+        <!-- Detaljer om hur träningspasset ska gå till -->
+        <TextBox x:Name="WorkoutDetailsInput" Width="200" Height="30" Margin="66,292,0,112" HorizontalAlignment="Left" Text="Enter details" PreviewTextInput="WorkoutDetailsInput_PreviewTextInput"/>
+
+
+        <!-- Knappar för att cancela eller spara -->
+        <Button x:Name="SaveBtn" Content="Save Workout" Width="100" Height="30" HorizontalAlignment="Left" Margin="432,364,0,40" Background="#DC143C" Foreground="White"  Click="SaveBtn_Click"/>
+        <Button x:Name="CancelBtn" Content="Cancel" Width="100" Height="30" HorizontalAlignment="Left" Margin="245,364,0,40" Background="#DC143C" Foreground="White"  Click="CancelBtn_Click"/>
+
+        <!-- Fält att beskriva träningen -->
+        <Label Content="Explain the workout!" FontSize="14" HorizontalAlignment="Left" Margin="543,259,0,142"/>
+        <TextBox x:Name="WorkoutDescriptionInput" Width="200" Height="30" Text="What you did (e.g., jogging)" Margin="530,292,70,112"/>
+
+
+
+
+
     </Grid>
 </Window>

@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace FitTrack.Models
 {
-    internal class Workout
+    public abstract class Workout
     {
+        //Egenskaperna!
+        public DateTime Date { get; set; }
+        public string Type { get; set; }
+        public TimeSpan Duration { get; set; }
+        public int CaloriesBurned { get; set; }
+        public string Notes { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+
+
+
+
+        //Metod för att kalkylera kalories som bränts
+        public abstract int CalculateCaloriesBurned();
     }
 }
