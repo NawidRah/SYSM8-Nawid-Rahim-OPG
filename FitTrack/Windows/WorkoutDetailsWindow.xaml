@@ -16,7 +16,7 @@
     <Grid>
 
         <!-- Titel -->
-        <Label Content="Workout Details" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+        <Label Content="Workout Details" FontSize="20" FontWeight="UltraBold" HorizontalAlignment="Center" Margin="0,20,0,367" BorderThickness="5" BorderBrush="Black" Width="186"/>
 
         <!-- Datum -->
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="400" Margin="34,67,0,0">
@@ -40,13 +40,13 @@
         <!-- Knappar för att redigera och spara -->
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="504,102,0,0" Height="322" Width="158">
-            <Button x:Name="EditBtn" Content="Edit" Width="80" Height="62" Margin="5" Click="EditBtn_Click" Background="DarkCyan" Foreground="White"/>
-            <Button x:Name="SaveBtn" Content="Save" Width="80" Height="59" Margin="5" Click="SaveBtn_Click" Background="DarkCyan" Foreground="White"/>
+            <Button x:Name="EditBtn" Content="Edit" Width="80" Height="62" Margin="5" Click="EditBtn_Click" Background="Black" Foreground="White"/>
+            <Button x:Name="SaveBtn" Content="Save" Width="80" Height="59" Margin="5" Click="SaveBtn_Click" Background="Black" Foreground="White"/>
 
             <!-- avbryt knapp -->
 
 
-            <Button x:Name="CancelBtn" Content="Cancel" Width="80" Height="70" Margin="5" Click="CancelBtn_Click" Background="DarkCyan" Foreground="White"/>
+            <Button x:Name="CancelBtn" Content="Cancel" Width="80" Height="70" Margin="5" Click="CancelBtn_Click" Background="Black" Foreground="White"/>
 
             <!-- knapp för kopiera pass -->
         </StackPanel>

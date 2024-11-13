@@ -140,11 +140,12 @@ namespace FitTrack.Windows
         private void LoginButton_Click(object sender, RoutedEventArgs e) 
         {
             
+            //Tar emot inmatningen från fälten Username och Password
             string Username = UsernameInput.Text;
             string Password = PasswordInput.Password;
 
 
-            if 
+            
 
             if (Username == "Admin" && Password == "1234")
             {
@@ -184,11 +185,9 @@ namespace FitTrack.Windows
 
         }
 
-        public void Register() //SKRIV DENNA!
+        private void ForgotPassButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
-        
-
     }
 }

@@ -15,7 +15,7 @@
     <Grid>
 
         <!--  -->
-        <Label Content="Your Workouts" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="375,17,0,0" VerticalContentAlignment="Stretch" BorderThickness="3" BorderBrush="Black"/>
+        <Label Content="Your Workouts" FontSize="24" FontWeight="UltraBold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="321,18,0,0" VerticalContentAlignment="Stretch" BorderThickness="5" BorderBrush="Black"/>
 
 
         <!-- Lista för att visa träningspass -->
