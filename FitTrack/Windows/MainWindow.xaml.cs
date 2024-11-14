@@ -23,7 +23,7 @@ namespace FitTrack.Windows
             UserManager.InitializeDefaultUsers();
         }
 
-        private void SignIn_click(object sender, RoutedEventArgs e)
+        private void LogInBTN_Click(object sender, RoutedEventArgs e)
         {
 
             // Hämtar användarnamn och lösenord som användaren matat in.
@@ -100,10 +100,121 @@ namespace FitTrack.Windows
 
 
         //Glömt lösenord knappen leder till ''Forgot Password'' för att återställa lösenord.
-        private void ForgotPasswordBTN_Click(object sender, RoutedEventArgs e)
+        private void ForgotPassBTN_Click(object sender, RoutedEventArgs e)
         {
             var resetPasswordWindow = new ResetPassWindow();
             resetPasswordWindow.ShowDialog();
+
+        }
+
+        private void UsernameInput_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+            UsernameInputTEXT.Visibility = Visibility.Collapsed;
+
+
+        }
+
+        private void UsernameInput_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            if (sender is TextBox box)
+            {
+                if (string.IsNullOrEmpty(box.Text))
+                {
+                    UsernameInputTEXT.Visibility = Visibility.Visible;
+                }
+            }
+
+        }
+
+        private void UsernameInputTEXT_MouseEnter(object sender, MouseEventArgs e)
+        {
+            UsernameInputTEXT.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void UsernameInputTEXT_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is TextBox box)
+            {
+                if (string.IsNullOrEmpty(box.Text))
+                {
+                    UsernameInputTEXT.Visibility = Visibility.Visible;
+                }
+            }
+        }
+
+        private void UsernameInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (sender is TextBox UserName)
+            {
+                if (string.IsNullOrEmpty(UserName.Text))
+                {
+                    UsernameInputTEXT.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    UsernameInputTEXT.Visibility = Visibility.Collapsed;
+                }
+            }
+
+        }
+
+
+        //Password input och placeholder för passwordbox
+        private void PasswordInput_MouseEnter(object sender, MouseEventArgs e)
+        {
+            PasswordInputTEXT.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void PasswordInput_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is PasswordBox pass)
+            {
+                {
+                    if (string.IsNullOrEmpty(pass.Password))
+                    {
+                        PasswordInputTEXT.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+
+        }
+
+        private void PasswordInput_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender is PasswordBox Pass)
+            {
+                if (string.IsNullOrEmpty(Pass.Password))
+                {
+                    PasswordInputTEXT.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    PasswordInputTEXT.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void PasswordInputTEXT_MouseEnter(object sender, MouseEventArgs e)
+        {
+            PasswordInputTEXT.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void PasswordInputTEXT_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is PasswordBox pass)
+            {
+                if (string.IsNullOrEmpty(pass.Password))
+                {
+                    PasswordInputTEXT.Visibility = Visibility.Visible;
+                }
+
+            }
 
         }
 

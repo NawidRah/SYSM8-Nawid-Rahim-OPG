@@ -6,7 +6,49 @@
         xmlns:local="clr-namespace:FitTrack.Windows"
         mc:Ignorable="d"
         Title="ResetPassWindow" Height="450" Width="800">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="Crimson" Offset="0.0" />
+            <GradientStop Color="White" Offset="2" />
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+
     <Grid>
-        
+
+        <!-- Titel -->
+        <Label Content="Reset Your Password" FontSize="18" FontWeight="UltraBold" BorderThickness="5" BorderBrush="White" Background="LightSalmon" 
+               HorizontalAlignment="Center" Margin="0,90,0,300"/>
+
+
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="144,229,0,172" FontWeight="UltraBold" Background="White"/>
+        <TextBox x:Name="UsernameInput" Width="300" Height="30" Margin="30,262,0,142" 
+                 HorizontalAlignment="Left" Foreground="Gray" />
+
+        <!-- säkerhets fråga -->
+        <Label Content="Select a security question:" HorizontalAlignment="Left" Margin="492,188,0,212" Background="White" FontWeight="UltraBold"/>
+        <ComboBox x:Name="SecurityQuestionComboBox" Width="300" Height="30" Margin="418,222,0,182" 
+                  HorizontalAlignment="Left">
+            <ComboBoxItem Content="What is your favorite color?"/>
+            <ComboBoxItem Content="What was the name of your first pet?"/>
+            <ComboBoxItem Content="What is your mother's maiden name?"/>
+        </ComboBox>
+
+        <!-- säkerhets svar-->
+        <Label Content="Security Question Answer:" HorizontalAlignment="Left" Margin="491,271,0,132" Background="White" FontWeight="UltraBold"/>
+        <TextBox x:Name="SecurityAnswerInput" Width="300" Height="30" Margin="415,302,0,102" 
+                 HorizontalAlignment="Left" Foreground="Gray" />
+
+        <!-- Fel meddelande -->
+        <TextBlock x:Name="MessageTextBlock" Foreground="Red" FontSize="12" 
+                   HorizontalAlignment="Center" Margin="0,260,0,0"/>
+
+        <Button x:Name="SubmitBtn" Content="Submit" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,367,0,0" Background="White" Click="SubmitBtn_Click"/>
+
+        <TextBlock x:Name="question" HorizontalAlignment="Left" Margin="10,90,0,0" FontWeight="Bold"/>
+
+
+
     </Grid>
 </Window>
