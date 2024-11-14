@@ -27,7 +27,7 @@
         <Button x:Name="DetailsBtn" Content="Details" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,384,218,20" Click="DetailsBtn_Click"/>
 
         <!-- Utloggningsknapp -->
-        <Button x:Name="LogBtn" Content="Log Out" Background="Black" Foreground="White" Width="100"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,360"  Click="Button_Click"/>
+        <Button x:Name="LogBtn" Content="Log Out" Background="Black" Foreground="White" Width="100"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,360"  Click="LogBtn_Click"/>
 
         <!-- TextBox för att söka efter träningspass -->
         <TextBox x:Name="SearchTextBox" Text="Search workouts..." Width="190" HorizontalAlignment="Left" Margin="83,33,0,370" KeyUp="SearchTextBox_KeyUp"/>

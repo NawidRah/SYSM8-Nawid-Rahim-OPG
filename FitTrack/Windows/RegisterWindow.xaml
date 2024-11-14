@@ -6,8 +6,59 @@
         xmlns:local="clr-namespace:FitTrack"
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800">
+
     <Grid>
-        <Frame x:Name="RegisterFrame" Background="#D3D3D3"/>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#DC143C" Offset="0.0" />
+                <GradientStop Color="Black" Offset="2.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+
+        <!-- Titel! -->
+        <Label Content="Register New User" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,85,0,313" Width="172"/>
+
+        <!-- Användarnamns input -->
+        <TextBox x:Name="UsernameInput" Width="200" Height="30" Margin="0,126,0,0" 
+                 HorizontalAlignment="Center" VerticalAlignment="Top" 
+                 Text="Username" Foreground="Gray"/>
+
+        <!-- Lösenords Inmatning -->
+        <PasswordBox x:Name="PwdInput" Width="200" Height="30" Margin="0,180,0,0" 
+                     HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <TextBox x:Name="PwdInputTEXT"  Width="200" Height="30" Margin="0,180,0,0" 
+                     HorizontalAlignment="Center" VerticalAlignment="Top" Text="Type your Password" Foreground="Gray" MouseEnter="PwdInputTEXT_MouseEnter" MouseLeave="PwdInputTEXT_MouseLeave"/>
+
+        <!-- Godkännande av lösenord! -->
+        <PasswordBox x:Name="ConfirmPwd" Width="200" Height="30" Margin="0,235,0,0" 
+                     HorizontalAlignment="Center" VerticalAlignment="Top" />
+
+        <!-- Kombobox för länder! (Bara skandinavien för nu) -->
+        <ComboBox x:Name="CountryComboBox" Width="200" Height="30" Margin="0,292,0,0" 
+                  HorizontalAlignment="Center" VerticalAlignment="Top">
+            <ComboBoxItem Content="Sweden"/>
+            <ComboBoxItem Content="Norway"/>
+            <ComboBoxItem Content="Denmark"/>
+        </ComboBox>
+
+        <!-- Fel meddelande! -->
+        <TextBlock x:Name="ErrorMessage" Foreground="Red" FontSize="12" 
+                   HorizontalAlignment="Center" Margin="0,210,0,0" Text=""/>
+
+        <!-- register knapp -->
+        <Button x:Name="RegisterBtn" Content="Register" Width="80" Height="30" 
+                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,341,0,0" Click="RegisterBtn_Click"
+                    Background="IndianRed"/>
+
+        <!-- cancel knapp -->
+        <Button x:Name="CancelBtn" Content="Cancel" Width="80" Height="30" 
+                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,394,0,0" Click="CancelBtn_Click" Background="IndianRed"/>
+
+
+
 
     </Grid>
 </Window>

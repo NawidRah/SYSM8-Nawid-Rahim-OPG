@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using FitTrack.Models;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,175 +20,92 @@ namespace FitTrack.Windows
         public MainWindow()
         {
             InitializeComponent();
+            UserManager.InitializeDefaultUsers();
         }
 
-
-        //Username input och placeholder effekt för Username textboxen.
-
-        private void UsernameInput_MouseEnter(object sender, MouseEventArgs e)
+        private void SignIn_click(object sender, RoutedEventArgs e)
         {
 
-            UsernameInputTEXT.Visibility = Visibility.Collapsed;
+            // Hämtar användarnamn och lösenord som användaren matat in.
+            string username = UsernameInput.Text;
+            string password = PasswordInput.Password;
 
-
-        }
-
-        private void UsernameInput_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-            if (sender is TextBox box)
+            // Ser till så att inmatningen matchar med vad som finns i databasen.
+            if (UserManager.AuthenticateUser(username, password))
             {
-                if (string.IsNullOrEmpty(box.Text))
+                // Genererar en ''random'' siffra för att kunna använda till 2FA.
+                string verificationCode = new Random().Next(100000, 999999).ToString();
+                MessageBox.Show($"Verification code: {verificationCode}", "2FA Code");
+
+                // Visar upp 2FA fönstret
+                var twoFactorWindow = new _2FAWindow(verificationCode);
+                twoFactorWindow.ShowDialog();
+
+                //  Kontrollerar så att koden är correct!
+
+                if (twoFactorWindow.Verification)
                 {
-                    UsernameInputTEXT.Visibility = Visibility.Visible;
-                }
-            }
+                    // Hämtar användaren som klarat sig genom 2FA
+                    User authenticatedUser = UserManager.GetUserByUsername(username);
 
-        }
+                    // Om användaren är en ''Admin'' så har den fler behörigheter, såsom att ta emot alla träningspass.
+                    if (username == "admin")
+                    {
+                        var workoutsWindow = new WorkoutsWindow(authenticatedUser);
 
-        private void UsernameInputTEXT_MouseEnter(object sender, MouseEventArgs e)
-        {
-            UsernameInputTEXT.Visibility = Visibility.Collapsed;
-
-        }
-
-        private void UsernameInputTEXT_MouseLeave(object sender, MouseEventArgs e)
-        {
-            if (sender is TextBox box)
-            {
-                if (string.IsNullOrEmpty(box.Text))
-                {
-                    UsernameInputTEXT.Visibility = Visibility.Visible;
-                }
-            }
-        }
-
-        private void UsernameInput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-            if (sender is TextBox UserName)
-            {
-                if (string.IsNullOrEmpty(UserName.Text))
-                {
-                    UsernameInputTEXT.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    UsernameInputTEXT.Visibility = Visibility.Collapsed;
-                }
-            }
-
-        }
-
-
-        //Password input och placeholder för passwordbox
-        private void PasswordInput_MouseEnter(object sender, MouseEventArgs e)
-        {
-            PasswordInputTEXT.Visibility = Visibility.Collapsed;
-
-        }
-
-        private void PasswordInput_MouseLeave(object sender, MouseEventArgs e)
-        {
-            if (sender is PasswordBox pass)
-            {
-                {
-                    if (string.IsNullOrEmpty(pass.Password))
-                        {
-                        PasswordInputTEXT.Visibility = Visibility.Visible;
+                        // Laddar in alla träningspass inför Admin
+                        workoutsWindow.LoadAllWorkouts(); 
+                        workoutsWindow.Show();
                     }
-                }
-            }
-            
-        }
+                    else
+                    {
+                        // Visar ett WorkoutWindow med alla olika träningspass
+                        var workoutsWindow = new WorkoutsWindow(authenticatedUser);
 
-        private void PasswordInput_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (sender is PasswordBox Pass)
-            {
-                if (string.IsNullOrEmpty(Pass.Password))
-                {
-                    PasswordInputTEXT.Visibility = Visibility.Visible;
+                        // Laddar användarens egna träningspass.
+                        workoutsWindow.LoadWorkoutsForUser(authenticatedUser); 
+                        workoutsWindow.Show();
+                    }
+
+                    this.Close();
                 }
                 else
                 {
-                    PasswordInputTEXT.Visibility = Visibility.Collapsed;
+
+                    //Fel meddelande vid felaktig 2FA
+                    MessageBox.Show("Two-factor authentication failed.", "Login failed");
                 }
-            }
-        }
-
-        private void PasswordInputTEXT_MouseEnter(object sender, MouseEventArgs e)
-        {
-            PasswordInputTEXT.Visibility = Visibility.Collapsed;
-
-        }
-
-        private void PasswordInputTEXT_MouseLeave(object sender, MouseEventArgs e)
-        {
-            if (sender is PasswordBox pass)
-            {
-                if (string.IsNullOrEmpty (pass.Password))
-                {  
-                    PasswordInputTEXT.Visibility = Visibility.Visible;
-                }
-                
-            }
-            
-        }
-
-
-        //Login knapp som registrerar inlogg och verifierar om det är rätt. Sedan förs användaren till WorkoutsWindow där användaren kan använda appen.
-        private void LoginButton_Click(object sender, RoutedEventArgs e) 
-        {
-            
-            //Tar emot inmatningen från fälten Username och Password
-            string Username = UsernameInput.Text;
-            string Password = PasswordInput.Password;
-
-
-            
-
-            if (Username == "Admin" && Password == "1234")
-            {
-                MessageBox.Show("Login sucessful!");
-
-                WorkoutsWindow workoutWindow = new WorkoutsWindow();
-                workoutWindow.Show();
-
-                Close();
-                
-
-                
             }
             else
             {
-                MessageBox.Show("Incorrect password!");
+
+                //Felmeddelande vid felaktig namn eller lösenord.
+                MessageBox.Show("Invalid username or password.", "Login failed");
+            }
+        }
+
+
+        private void RegisterBTN_Click(object sender, RoutedEventArgs e)
+        {
+            {
+
+                // Öppnar register window när användaren klickar Register knappen.
+                var registerWindow = new RegisterWindow();
+                registerWindow.Show();
+
+                this.Close();
             }
 
-
-
         }
 
 
-
-
-
-
-        //Register knapp som tar användaren till RegisterWindow där en profil kan skapas.
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        //Glömt lösenord knappen leder till ''Forgot Password'' för att återställa lösenord.
+        private void ForgotPasswordBTN_Click(object sender, RoutedEventArgs e)
         {
-
-            RegisterWindow registerWindow = new RegisterWindow();
-            registerWindow.Show();
-
-            Close();
-
+            var resetPasswordWindow = new ResetPassWindow();
+            resetPasswordWindow.ShowDialog();
 
         }
 
-        private void ForgotPassButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
