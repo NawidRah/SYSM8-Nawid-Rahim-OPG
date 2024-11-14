@@ -24,11 +24,11 @@
 
 
         <!-- TextBox för att ange koden från användaren -->
-        <TextBox x:Name="CodeInput" Width="100" Height="30" Margin="0,262,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Foreground="Gray" RenderTransformOrigin="-0.024,7.495"/>
+        <TextBox x:Name="CodeInput" Width="100" Height="30" Margin="0,247,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Foreground="Gray" RenderTransformOrigin="-0.024,7.495"/>
 
 
         <!-- Knapp för att verifiera koden -->
-        <Button Content="Verify" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,297,0,0" Background="White" Click="Verify_Click" RenderTransformOrigin="0.023,-1.733"/>
+        <Button Content="Verify" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,282,0,0" Background="White" Click="Verify_Click" RenderTransformOrigin="0.023,-1.733"/>
 
         <!-- TextBlock för felmeddelanden -->
         <TextBlock x:Name="ErrorMessage"  Foreground="Red" FontSize="12" HorizontalAlignment="Center" Margin="0,120,0,0"/>

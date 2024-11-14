@@ -19,30 +19,35 @@
 
 
         <!-- Titel! -->
-        <Label Content="Register New User" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,85,0,313" Width="172"/>
+        <Label Content="Register New User" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,55,0,343" Width="172"/>
 
         <!-- Användarnamns input -->
-        <TextBox x:Name="UsernameInput" Width="200" Height="30" Margin="0,126,0,0" 
-                 HorizontalAlignment="Center" VerticalAlignment="Top" 
-                 Text="Username" Foreground="Gray"/>
+        <TextBox x:Name="UsernameInput" Width="200" Height="30" Margin="0,96,0,0" 
+                 HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Gray"
+                 Text="Username" MouseEnter="UsernameInput_MouseEnter" MouseLeave="UsernameInput_MouseLeave" HorizontalContentAlignment="Left"/>
 
         <!-- Lösenords Inmatning -->
-        <PasswordBox x:Name="PwdInput" Width="200" Height="30" Margin="0,180,0,0" 
-                     HorizontalAlignment="Center" VerticalAlignment="Top" />
-        <TextBox x:Name="PwdInputTEXT"  Width="200" Height="30" Margin="0,180,0,0" 
-                     HorizontalAlignment="Center" VerticalAlignment="Top" Text="Type your Password" Foreground="Gray" MouseEnter="PwdInputTEXT_MouseEnter" MouseLeave="PwdInputTEXT_MouseLeave"/>
+        <PasswordBox x:Name="PwdInput" Width="200" Height="30" Margin="0,147,0,0" 
+                     HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="PwdInput_MouseEnter" MouseLeave="PwdInput_MouseLeave" />
+        <TextBlock x:Name="PwdInputTEXT"  Width="172" Height="15" Margin="306,146,0,0" 
+                     HorizontalAlignment="Left" VerticalAlignment="Top" Text="Type your Password" Foreground="Gray" MouseEnter="PwdInputTEXT_MouseEnter" MouseLeave="PwdInputTEXT_MouseLeave"/>
 
         <!-- Godkännande av lösenord! -->
-        <PasswordBox x:Name="ConfirmPwd" Width="200" Height="30" Margin="0,235,0,0" 
-                     HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <PasswordBox x:Name="ConfirmPwd" Width="200" Height="30" Margin="0,193,0,0" 
+                     HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="ConfirmPwd_MouseEnter" MouseLeave="ConfirmPwd_MouseLeave"/>
+        <TextBlock x:Name="ConfirmPwdTEXT" Width="200" Height="30" Margin="306,193,0,0" 
+                     HorizontalAlignment="Left" VerticalAlignment="Top" Text="Confirm your password!" Foreground="Gray" MouseEnter="ConfirmPwdTEXT_MouseEnter" MouseLeave="ConfirmPwdTEXT_MouseLeave"/>
 
         <!-- Kombobox för länder! (Bara skandinavien för nu) -->
-        <ComboBox x:Name="CountryComboBox" Width="200" Height="30" Margin="0,292,0,0" 
-                  HorizontalAlignment="Center" VerticalAlignment="Top">
+        <ComboBox x:Name="CountryComboBox" Width="200" Height="30" Margin="0,239,0,0" 
+                  HorizontalAlignment="Center" VerticalAlignment="Top" SelectionChanged="CountryComboBox_SelectionChanged">
             <ComboBoxItem Content="Sweden"/>
             <ComboBoxItem Content="Norway"/>
             <ComboBoxItem Content="Denmark"/>
         </ComboBox>
+        <TextBlock x:Name="CountryComboBoxTEXT" Text="Choose a country!" Width="200" Height="16" Margin="342,223,0,0" 
+                  HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+
 
         <!-- Fel meddelande! -->
         <TextBlock x:Name="ErrorMessage" Foreground="Red" FontSize="12" 
@@ -50,12 +55,12 @@
 
         <!-- register knapp -->
         <Button x:Name="RegisterBtn" Content="Register" Width="80" Height="30" 
-                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,341,0,0" Click="RegisterBtn_Click"
+                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,284,0,0" Click="RegisterBtn_Click"
                     Background="IndianRed"/>
 
         <!-- cancel knapp -->
         <Button x:Name="CancelBtn" Content="Cancel" Width="80" Height="30" 
-                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,394,0,0" Click="CancelBtn_Click" Background="IndianRed"/>
+                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,332,0,0" Click="CancelBtn_Click" Background="IndianRed"/>
 
 
 

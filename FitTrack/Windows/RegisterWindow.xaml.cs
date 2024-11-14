@@ -87,18 +87,44 @@ namespace FitTrack.Windows
             return false;
         }
 
+        
+
+
+        //En rad kod som gör animeringen av Username input så att den försvinner när musen är över, beroende på om det finns text eller inte.
+        private void UsernameInput_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+            if (UsernameInput.Text != null || UsernameInput.Text != "") //Om texten INTE är null eller tom så försvinner texten
+            {
+                UsernameInput.Text = string.Empty; //Försvinner
+
+                UsernameInput.Foreground = Brushes.Black; //Texten som användaren skriver kommer in i svart. Blir mer tydligt för användaren.
+            }
+        }
+
+
+        //Denna kod förtydligar det som sker när musen lämnar, det vill säga att om koden är null och tom så kommer placeholder texten tillbaka!
+        private void UsernameInput_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            if (UsernameInput.Text == null || UsernameInput.Text == "") //Om den är null eller tom!
+            {
+                UsernameInput.Text = "Username"; //Placeholder texten tillbaka
+
+                UsernameInput.Foreground = Brushes.Gray; //Texten blir grå för att visa att det är en placeholder.
+            }
+        }
+        //-----------------------------------------------------
+
         private void PwdInputTEXT_MouseEnter(object sender, MouseEventArgs e)
         {
 
-            
-            if (PwdInput.Password == null || PwdInput.Password == "")
-            {
-                PwdInputTEXT.Visibility = Visibility.Visible;
-            }
-            else
+
+            if (PwdInput.Password != null || PwdInput.Password != "")
             {
                 PwdInputTEXT.Visibility = Visibility.Collapsed;
             }
+
         }
 
         private void PwdInputTEXT_MouseLeave(object sender, MouseEventArgs e)
@@ -107,12 +133,92 @@ namespace FitTrack.Windows
             {
                 PwdInputTEXT.Visibility = Visibility.Visible;
             }
-            else
+
+
+        }
+        //-----------------------------
+        //Första lösenords animeringen, samma som ovan!
+        private void PwdInput_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+            if (PwdInput.Password != null || PwdInput.Password != "")
             {
                 PwdInputTEXT.Visibility = Visibility.Collapsed;
+
+            }
+            
+
+        }
+
+        private void PwdInput_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            if (PwdInput.Password == null || PwdInput.Password == "")
+            {
+                PwdInputTEXT.Visibility = Visibility.Visible;
             }
 
         }
+        //--------------------------------------------------------
+        //Samma sak på Confirm lösenord!
+        private void ConfirmPwdTEXT_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (ConfirmPwd.Password != null || ConfirmPwd.Password != "")
+            {
+                ConfirmPwdTEXT.Visibility = Visibility.Collapsed;
+            }
+
+        }
+
+        private void ConfirmPwdTEXT_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            if (ConfirmPwd.Password == null || ConfirmPwd.Password == "")
+            {
+                ConfirmPwdTEXT.Visibility = Visibility.Visible;
+            }
+        }
+
+
+        //Andra delen av animeringen.
+        private void ConfirmPwd_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (ConfirmPwd.Password != null || ConfirmPwd.Password != "")
+            {
+                ConfirmPwdTEXT.Visibility= Visibility.Collapsed;
+            }
+        }
+
+        private void ConfirmPwd_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (ConfirmPwd.Password == null || ConfirmPwd.Password == "")
+            {
+                ConfirmPwdTEXT.Visibility= Visibility.Visible;
+            }
+        }
+        //-----------------------------------------------------
+        //Placeholder för komboboxen fungerar annorlunda, här behöver vi skriva SelectionChanged istället då den triggas när ett alternativ valts.
+        private void CountryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CountryComboBox.SelectedItem == null)
+            {
+                // Om ingenting är valt, så kommer placeholder texten visas på komboboxen
+                CountryComboBoxTEXT.Visibility = Visibility.Visible;
+
+                
+            }
+            else
+            {
+                // Om ett alternativ är valt så försvinner placeholders, så att den inte går över texten!
+                CountryComboBoxTEXT.Visibility = Visibility.Collapsed;
+            }
+
+        }
+
+
+        //----------------------------------------------------------------------------
+
+
     }
 }
 
