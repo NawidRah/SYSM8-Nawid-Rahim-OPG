@@ -65,7 +65,10 @@ namespace FitTrack.Windows
             UserManager.AddUser(newUser); // Spara användaren
             MessageBox.Show("User registered successfully!");
 
+            var mainWindow = new MainWindow();
+
             this.Close();
+            mainWindow.Show();
         }
 
 

@@ -33,14 +33,16 @@
         <TextBox x:Name="SearchTextBox" Text="Search workouts..." Width="190" HorizontalAlignment="Left" Margin="83,33,0,370" KeyUp="SearchTextBox_KeyUp"/>
 
         <!-- ComboBox för att välja typ av träning -->
-        <ComboBox x:Name="WorkoutTypeComboBox" HorizontalAlignment="Left" Margin="200,332,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="WorkoutTypeComboBox_SelectionChanged">
+        <ComboBox x:Name="WorkoutTypeComboBox" HorizontalAlignment="Left" Margin="564,159,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="WorkoutTypeComboBox_SelectionChanged">
             <ComboBoxItem Content="All"/>
             <ComboBoxItem Content="Cardio"/>
             <ComboBoxItem Content="Strength"/>
         </ComboBox>
+        
 
         <!-- info knapp -->
         <Button x:Name="InfoBtn" Content="Info" Width="80" Height="30" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Background="Black" Foreground="White" Click="InfoBtn_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="599,138,0,0" TextWrapping="Wrap" Text="Choose type of Workout" VerticalAlignment="Top"/>
 
 
 

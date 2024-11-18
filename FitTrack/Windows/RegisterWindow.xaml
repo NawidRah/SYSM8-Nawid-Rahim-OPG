@@ -29,7 +29,7 @@
         <!-- Lösenords Inmatning -->
         <PasswordBox x:Name="PwdInput" Width="200" Height="30" Margin="0,147,0,0" 
                      HorizontalAlignment="Center" VerticalAlignment="Top" MouseEnter="PwdInput_MouseEnter" MouseLeave="PwdInput_MouseLeave" />
-        <TextBlock x:Name="PwdInputTEXT"  Width="172" Height="15" Margin="306,146,0,0" 
+        <TextBlock x:Name="PwdInputTEXT"  Width="172" Height="15" Margin="306,154,0,0" 
                      HorizontalAlignment="Left" VerticalAlignment="Top" Text="Type your Password" Foreground="Gray" MouseEnter="PwdInputTEXT_MouseEnter" MouseLeave="PwdInputTEXT_MouseLeave"/>
 
         <!-- Godkännande av lösenord! -->
