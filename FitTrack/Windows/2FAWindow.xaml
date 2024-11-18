@@ -16,21 +16,21 @@
 
 
     <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <!-- Titel -->
+            <Label Content="Two-Factor Authentication" FontSize="18" FontWeight="UltraBold" Width="260" Height="50" BorderThickness="5" BorderBrush="Black" Background="White" />
+            <!-- TextBox för att ange koden från användaren -->
+            <TextBlock Text="Enter the 6-digit code in the box below!"  FontSize="14" Background="White" Width="250" Height="25" />
+            <!-- Knapp för att verifiera koden -->
+            <TextBox x:Name="CodeInput" Width="100" Height="30" TextAlignment="Center" Foreground="Gray" RenderTransformOrigin="-0.024,7.495"/>
+            <!-- TextBlock för felmeddelanden -->
+            <Button Content="Verify" Width="80" Height="30" Background="White" Click="Verify_Click" RenderTransformOrigin="0.023,-1.733" />
+            
+        </StackPanel>
+        
 
-        <!-- Titel -->
-        <Label Content="Two-Factor Authentication" FontSize="18" FontWeight="UltraBold" HorizontalAlignment="Center" Margin="0,145,0,240" BorderThickness="5" BorderBrush="Black" Background="White"/>
 
-        <TextBlock Text="Enter the 6-digit code in the box below!" HorizontalAlignment="Center" Margin="0,217,0,192" FontSize="14" Background="White" />
-
-
-        <!-- TextBox för att ange koden från användaren -->
-        <TextBox x:Name="CodeInput" Width="100" Height="30" Margin="0,247,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Foreground="Gray" RenderTransformOrigin="-0.024,7.495"/>
-
-
-        <!-- Knapp för att verifiera koden -->
-        <Button Content="Verify" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,282,0,0" Background="White" Click="Verify_Click" RenderTransformOrigin="0.023,-1.733"/>
-
-        <!-- TextBlock för felmeddelanden -->
+       
         <TextBlock x:Name="ErrorMessage"  Foreground="Red" FontSize="12" HorizontalAlignment="Center" Margin="0,120,0,0"/>
 
     </Grid>
