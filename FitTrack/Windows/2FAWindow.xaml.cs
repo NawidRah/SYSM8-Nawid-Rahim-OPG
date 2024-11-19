@@ -47,7 +47,7 @@ namespace FitTrack.Windows
             else
             {
                 // Visar fel meddelande vid fel knappsats.
-                ErrorMessage.Text = "Code is incorrect, try again!";
+                MessageBox.Show("The code is incorrect, Try again!");
 
                
 

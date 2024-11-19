@@ -25,13 +25,13 @@
             <TextBox x:Name="CodeInput" Width="100" Height="30" TextAlignment="Center" Foreground="Gray" RenderTransformOrigin="-0.024,7.495"/>
             <!-- TextBlock för felmeddelanden -->
             <Button Content="Verify" Width="80" Height="30" Background="White" Click="Verify_Click" RenderTransformOrigin="0.023,-1.733" />
-            
+
         </StackPanel>
+
+
+
+
         
-
-
-       
-        <TextBlock x:Name="ErrorMessage"  Foreground="Red" FontSize="12" HorizontalAlignment="Center" Margin="0,120,0,0"/>
 
     </Grid>
 </Window>
