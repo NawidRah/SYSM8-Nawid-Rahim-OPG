@@ -19,7 +19,7 @@
     <Grid>
 
         <!-- Titel -->
-        <Label Content="Edit User Details" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="104,49,0,440" Background="Gray" BorderBrush="Black" BorderThickness="2"/>
+        <Label Content="Edit User Details" Width="160" Height="40" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="104,49,0,440" Background="Gray" BorderBrush="Black" BorderThickness="2"/>
 
 
         <!-- Nuvarande användarnamn -->
@@ -28,15 +28,15 @@
 
 
         <!-- Nytt användarnamn -->
-        <Label Content="New Username:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,198,0,0" Background="Gray" BorderThickness="2" BorderBrush="Black"/>
+        <Label Content="New Username:" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,198,0,0" Background="Gray" BorderThickness="2" BorderBrush="Black"/>
         <TextBox x:Name="NewUsrnameInput" Width="200" Height="30" Margin="80,228,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!-- Nytt lösenord -->
-        <Label Content="New Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="494,129,0,0" Background="Gray" BorderThickness="2" BorderBrush="Black"/>
+        <Label Content="New Password:" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="494,129,0,0" Background="Gray" BorderThickness="2" BorderBrush="Black"/>
         <PasswordBox x:Name="NewPwdInput" Width="200" Height="30" Margin="434,159,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!-- Bekräfta nytt lösenord -->
-        <Label Content="Confirm Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="485,198,0,0" Background="Gray" BorderThickness="2" BorderBrush="Black" Height="30"/>
+        <Label Content="Confirm Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="485,198,0,0" Background="Gray" BorderThickness="2" BorderBrush="Black" Width="110" Height="30"/>
         <PasswordBox x:Name="ConfirmPwdInput" Width="200" Height="30" Margin="441,228,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!-- Välj nytt land -->
@@ -51,10 +51,10 @@
         <TextBlock x:Name="ErrorMessage" Foreground="Red" FontSize="12" HorizontalAlignment="Center" Margin="0,360,0,0" Text=""/>
 
         <!-- Spara-knapp -->
-        <Button x:Name="SaveBtn" Content="Save" Width="80" Height="30" HorizontalAlignment="Left" Margin="227,0,0,56" VerticalAlignment="Bottom" Background="Gray"  Click="SaveBtn_Click" BorderBrush="Black"/>
+        <Button x:Name="SaveBtn" Content="Save" Width="80" Height="30" HorizontalAlignment="Left" Margin="200,0,0,92" VerticalAlignment="Bottom" Background="Gray"  Click="SaveBtn_Click" BorderBrush="Black"/>
 
         <!-- Avbryt-knapp -->
-        <Button x:Name="CancelBtn"  Content="Cancel" Width="80" Height="30" HorizontalAlignment="Right" Margin="0,0,286,56" VerticalAlignment="Bottom" Background="Gray" Click="CancelBtn_Click" BorderBrush="Black"/>
+        <Button x:Name="CancelBtn"  Content="Cancel" Width="80" Height="30" HorizontalAlignment="Right" Margin="0,0,260,92" VerticalAlignment="Bottom" Background="Gray" Click="CancelBtn_Click" BorderBrush="Black"/>
 
 
 
