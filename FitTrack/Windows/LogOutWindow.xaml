@@ -13,9 +13,13 @@
                 <GradientStop Color="Black" Offset="2.0" />
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBox Text="Are you sure you want to log out?" HorizontalAlignment="Center" VerticalAlignment="Top" Height="41" Width="354" FontSize="20" Margin="0,75,0,0" BorderBrush="Black" FontWeight="UltraBold" Background="Transparent"/>
-        <Button x:Name="YesBTN" Content="YES" HorizontalAlignment="Left" Margin="175,217,0,0" VerticalAlignment="Top" Height="49" Width="175" Click="YesBTN_Click"/>
-        <Button x:Name="NoBTN" Content="NO" HorizontalAlignment="Left" Margin="450,217,0,0" VerticalAlignment="Top" Height="45" Width="167" Click="NoBTN_Click"/>
+        <TextBlock Text="Are you sure you want to log out?" HorizontalAlignment="Left" VerticalAlignment="Top" Height="41" Width="354" FontSize="20" Margin="225,94,0,0"  FontWeight="UltraBold" Background="Transparent"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
 
+
+            <Button x:Name="YesBTN" Content="YES" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Width="167" Click="YesBTN_Click"/>
+
+            <Button x:Name="NoBTN" Content="NO"  Height="45" Width="167" Click="NoBTN_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

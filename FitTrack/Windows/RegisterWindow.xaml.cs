@@ -34,7 +34,9 @@ namespace FitTrack.Windows
 
             if (PwdInput.Password != ConfirmPwd.Password)
             {
-                ErrorMessage.Text = "Passwords do not match";
+
+                MessageBox.Show("Passwords do not match, Try again!");
+                
                 return;
             }
 
@@ -42,7 +44,8 @@ namespace FitTrack.Windows
 
             if (PwdInput.Password.Length < 8 || !PwdInput.Password.Any(char.IsDigit) || !PwdInput.Password.Any(char.IsPunctuation))
             {
-                ErrorMessage.Text = "Password must be at least 8 characters long, with at least one number and one special character.";
+                MessageBox.Show("Password must contain at least 8 characters, and should incluce at least one number and one special character!");
+                
                 return;
             }
 
@@ -50,7 +53,8 @@ namespace FitTrack.Windows
 
             if (UserManager.IsUsernameTaken(UsernameInput.Text))
             {
-                ErrorMessage.Text = "Username is already taken.";
+                MessageBox.Show("Username is taken already!");
+                
                 return;
             }
 

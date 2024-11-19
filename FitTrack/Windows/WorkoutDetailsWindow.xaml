@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrack.Windows"
         mc:Ignorable="d"
-        Title="WorkoutDetailsWindow" Height="450" Width="800">
+        Title="WorkoutDetailsWindow" Height="550" Width="800">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="#D3D3D3" Offset="0.0" />
@@ -16,7 +16,7 @@
     <Grid>
 
         <!-- Titel -->
-        <Label Content="Workout Details" FontSize="20" FontWeight="UltraBold" HorizontalAlignment="Center" Margin="0,20,0,367" BorderThickness="5" BorderBrush="Black" Width="186"/>
+        <Label Content="Workout Details" FontSize="20" FontWeight="UltraBold" HorizontalAlignment="Center" Margin="0,20,0,467" BorderThickness="5" BorderBrush="Black" Width="186"/>
 
         <!-- Datum -->
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="400" Margin="34,67,0,0">

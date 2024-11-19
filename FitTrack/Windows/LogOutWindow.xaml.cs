@@ -27,13 +27,22 @@ namespace FitTrack.Windows
         private void NoBTN_Click(object sender, RoutedEventArgs e)
         {
 
-            
+
+            this.Close();
 
         }
 
         private void YesBTN_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Thanks for using FitTrack! You are logged out!");
+
+            var mainWindow = new MainWindow();
+
+            mainWindow.Show();
+
+            this.Close();
+
+
 
             
         }

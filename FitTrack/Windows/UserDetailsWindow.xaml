@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrack.Windows"
         mc:Ignorable="d"
-        Title="UserDetailsWindow" Height="450" Width="800">
+        Title="UserDetailsWindow" Height="550" Width="800">
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="Crimson" Offset="0.0" />
@@ -19,7 +19,7 @@
     <Grid>
 
         <!-- Titel -->
-        <Label Content="Edit User Details" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="104,49,0,340" Background="Gray" BorderBrush="Black" BorderThickness="2"/>
+        <Label Content="Edit User Details" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="104,49,0,440" Background="Gray" BorderBrush="Black" BorderThickness="2"/>
 
 
         <!-- Nuvarande användarnamn -->

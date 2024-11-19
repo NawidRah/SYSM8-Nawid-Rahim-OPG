@@ -103,21 +103,8 @@ namespace FitTrack.Windows
             e.Handled = false;
         }
 
-        // Ändrar typen av text beroende på alternativet som valts i typen av träning!
-        private void WorkoutTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (WorkoutTypeComboBox.SelectedItem is ComboBoxItem selectedType)
-            {
-                if (selectedType.Content.ToString() == "Cardio")
-                {
-                    DetailsLabel.Content = "Enter Distance (in meters):";
-                }
-                else if (selectedType.Content.ToString() == "Strength")
-                {
-                    DetailsLabel.Content = "Enter Repetitions:";
-                }
-            }
-        }
+            
+        
     }
 
 }

@@ -19,7 +19,7 @@
 
 
         <!-- Titel! -->
-        <Label Content="Register New User" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,55,0,343" Width="172"/>
+        <Label Content="Register New User" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,55,0,343" Width="172" Height="40"/>
 
         <!-- Användarnamns input -->
         <TextBox x:Name="UsernameInput" Width="200" Height="30" Margin="0,96,0,0" 
@@ -45,13 +45,11 @@
             <ComboBoxItem Content="Norway"/>
             <ComboBoxItem Content="Denmark"/>
         </ComboBox>
-        <TextBlock x:Name="CountryComboBoxTEXT" Text="Choose a country!" Width="99" Height="16" Margin="341,223,0,0" 
-                  HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock x:Name="CountryComboBoxTEXT" Text="Choose a country!" Width="100" Height="16" Margin="0,246,0,0" 
+                  HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
 
 
-        <!-- Fel meddelande! -->
-        <TextBlock x:Name="ErrorMessage" Foreground="Red" FontSize="12" 
-                   HorizontalAlignment="Center" Margin="0,210,0,0" Text=""/>
+
 
         <!-- register knapp -->
         <Button x:Name="RegisterBtn" Content="Register" Width="80" Height="30" 
