@@ -33,8 +33,16 @@
 
 
         <!-- Detaljer om hur träningspasset ska gå till -->
-        
-        <TextBox x:Name="WorkoutDetailsInput" Width="200" Height="30" Margin="66,292,0,112" HorizontalAlignment="Left"  PreviewTextInput="WorkoutDetailsInput_PreviewTextInput"/>
+        <Button x:Name="DetailsBtn"
+        Content="Details"
+        Width="120"
+        Height="30"
+        HorizontalAlignment="Center"
+        Margin="0,357,0,0"
+        VerticalAlignment="Top"
+        Click="DetailsBtn_Click" />
+
+        <TextBox x:Name="WorkoutDetailsInput" Width="200" Height="30" Margin="66,292,0,112" HorizontalAlignment="Left" />
         <!-- Fält att beskriva träningen -->
         <Label Content="Explain the workout!" FontSize="14" HorizontalAlignment="Left" Margin="98,308,0,191" Width="140" Height="30" FontWeight="UltraBold"/>
 
@@ -43,7 +51,7 @@
         <Button x:Name="SaveBtn" Content="Save Workout" Width="100" Height="30" HorizontalAlignment="Left" Margin="432,364,0,40" Background="#DC143C" Foreground="White"  Click="SaveBtn_Click"/>
         <Button x:Name="CancelBtn" Content="Cancel" Width="100" Height="30" HorizontalAlignment="Left" Margin="245,364,0,40" Background="#DC143C" Foreground="White"  Click="CancelBtn_Click"/>
 
-        
+
         <TextBox x:Name="WorkoutDescriptionInput" Width="200" Height="30"  Margin="530,292,70,112"/>
         <TextBlock HorizontalAlignment="Left" Margin="530,313,0,0" TextWrapping="Wrap" Text="Pick a name for the workout!" VerticalAlignment="Top" Height="20" Width="200" FontWeight="UltraBold"/>
 
