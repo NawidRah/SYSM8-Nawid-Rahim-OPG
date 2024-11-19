@@ -20,91 +20,75 @@ namespace FitTrack.Windows
     /// </summary>
     public partial class AddWorkoutWindow : Window
     {
-        // Skapar en ny träning som kan användas utanför denna klassen (Public)
         public Workout NewWorkout { get; private set; }
+
         public AddWorkoutWindow()
         {
             InitializeComponent();
         }
 
-
-        // Metod som sätter in detaljer för träningen
+        // Sätter detaljer för ett träningspass när fönstret öppnas för redigering
         public void SetWorkoutDetails(Workout workout)
         {
+            WorkoutDescriptionInput.Text = workout.Name;
+
             if (workout is CardioWorkout cardioWorkout)
             {
-                // Cardio räknas in distans, denna kod ändrar så att det är distans och inte repititioner
                 WorkoutTypeComboBox.SelectedItem = "Cardio";
                 WorkoutDetailsInput.Text = cardioWorkout.Distance.ToString();
             }
             else if (workout is StrengthWorkout strengthWorkout)
             {
-                // Strength är valt och då räknas repitioner, inte distans!
                 WorkoutTypeComboBox.SelectedItem = "Strength";
                 WorkoutDetailsInput.Text = strengthWorkout.Repetitions.ToString();
             }
         }
 
-        // Användarens träning sparas när den klickar på "save"
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            // Kontrollerar om inmatningen är tom!
             if (WorkoutTypeComboBox.SelectedItem != null && !string.IsNullOrEmpty(WorkoutDetailsInput.Text))
             {
-                // Detta hämtat den valda träningen!
                 ComboBoxItem selectedType = (ComboBoxItem)WorkoutTypeComboBox.SelectedItem;
 
-
-                int value;
-                bool parseSuccess = int.TryParse(WorkoutDetailsInput.Text, out value);
-
-                // Skapar träningen om cardio är valt och allting är giltigt!
-                if (selectedType.Content.ToString() == "Cardio" && parseSuccess)
+                if (int.TryParse(WorkoutDetailsInput.Text, out int value))
                 {
-                    NewWorkout = new CardioWorkout
+                    if (selectedType.Content.ToString() == "Cardio")
                     {
-                        Distance = value,
-                        Name = WorkoutDescriptionInput.Text,
-                        Type = "Cardio" // Typen är satt till Cardio!
-                    };
-                }
-                // Skapar ett träningspass som har styrke träningar med repititioner!
-                else if (selectedType.Content.ToString() == "Strength" && parseSuccess)
-                {
-                    NewWorkout = new StrengthWorkout
+                        NewWorkout = new CardioWorkout
+                        {
+                            Distance = value,
+                            Name = WorkoutDescriptionInput.Text,
+                            Type = "Cardio"
+                        };
+                    }
+                    else if (selectedType.Content.ToString() == "Strength")
                     {
-                        Repetitions = value, // Sparar repititioner
-                        Name = WorkoutDescriptionInput.Text,
-                        Type = "Strength" // Sparar som typen styrka!
-                    };
-                }
+                        NewWorkout = new StrengthWorkout
+                        {
+                            Repetitions = value,
+                            Name = WorkoutDescriptionInput.Text,
+                            Type = "Strength"
+                        };
+                    }
 
-                // Om allting är korrekt och fungerar som det ska, så ska skärmen stängas av!
-                this.DialogResult = true;
-                this.Close();
+                    this.DialogResult = true;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid number for details.");
+                }
             }
             else
             {
-                // Om det finns felaktigheter i texten, skrivs detta ut!
-                MessageBox.Show("Please enter valid workout details.");
+                MessageBox.Show("Please fill in all fields.");
             }
         }
 
-        // Fönstret avbryts när cancel klickas
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
             this.Close();
-
         }
-
-        private void WorkoutDetailsInput_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = false;
-        }
-
-            
-        
     }
-
 }

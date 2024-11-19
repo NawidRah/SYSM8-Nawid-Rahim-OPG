@@ -38,14 +38,14 @@ namespace FitTrack.Windows
                 WorkoutList = User.Workouts ?? new List<Workout>(); // Visar bara träningspassen för den inloggade användaren.
             }
 
-            RefreshWorkoutList();
+            RefreshAndFilterWorkoutList();
         }
 
 
         public void LoadAllWorkouts()
         {
             WorkoutList = UserManager.GetAllWorkouts(); // Hämtar alla träningspass som finns.
-            RefreshWorkoutList();
+            RefreshAndFilterWorkoutList();
         }
         // Metod för att ladda träningspass från användaren
         public void LoadWorkoutsForUser(User user)
@@ -64,11 +64,10 @@ namespace FitTrack.Windows
 
 
 
-        // Uppdaterar träningslistan med redigeringar osv.
-        private void RefreshWorkoutList()
+        // Uppdaterar träningslistan med redigeringar samt filtrerar träningarna.
+        private void RefreshAndFilterWorkoutList()
         {
-            WorkoutsList.ItemsSource = null;
-            WorkoutsList.ItemsSource = WorkoutList;
+            FilterWorkouts();
         }
 
 
@@ -78,12 +77,15 @@ namespace FitTrack.Windows
         {
             var addWorkoutWindow = new AddWorkoutWindow();
 
-            // Öppna fönstret och lägg till träningspasset
-            if (addWorkoutWindow.ShowDialog() == true)
+            if (addWorkoutWindow.ShowDialog() == true && addWorkoutWindow.NewWorkout != null)
             {
                 Workout newWorkout = addWorkoutWindow.NewWorkout;
                 WorkoutList.Add(newWorkout);
-                RefreshWorkoutList();
+                RefreshAndFilterWorkoutList();
+            }
+            else
+            {
+                MessageBox.Show("No workout was added.");
             }
         }
 
@@ -120,7 +122,7 @@ namespace FitTrack.Windows
                     WorkoutList.Remove(selectedWorkout);
 
                     // Listan uppdateras så att det blir vad användaren valt.
-                    RefreshWorkoutList();
+                    RefreshAndFilterWorkoutList();
 
                     MessageBox.Show("Workout removed successfully.");
                 }
@@ -133,28 +135,18 @@ namespace FitTrack.Windows
 
         }
 
-
+        //Filtrera träningar
         private void FilterWorkouts()
         {
-
-            // Filtrerar träningspassen genom att söka.
             string searchText = SearchTextBox.Text.ToLower();
-
-            // Hämtar valda kategorin Cardio eller strength som valts i comboListan
             string selectedType = (WorkoutTypeComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? "All";
 
-            // Filtrerar träningspassen baserat på det som skrivits.
             var filteredWorkouts = WorkoutList.Where(workout =>
-
-                // Denna kod läser genom så att det Name notes eller beskrivning innehåller söktexten.
                 (string.IsNullOrEmpty(searchText) ||
                  (workout.Name != null && workout.Name.ToLower().Contains(searchText)) ||
                  (workout.Notes != null && workout.Notes.ToLower().Contains(searchText))) &&
-
-                // Kontrollera att typen matchar eller är inställd på "All"
                 (selectedType == "All" || workout.Type == selectedType)).ToList();
 
-            // Listan uppdateras så att sökningen sker.
             WorkoutsList.ItemsSource = filteredWorkouts;
         }
 
@@ -168,17 +160,14 @@ namespace FitTrack.Windows
             FilterWorkouts();
         }
 
+
+        //Ändrade info texten så att den blev kortare, samt mer tydlig och professionell.
         private void InfoBtn_Click(object sender, RoutedEventArgs e)
         {
-            string infoMessage = "FitTrack is an app manufactures by Nawid Rahim, who is the lead programmer in this project." +
-                         " FitTrack enables users to make a workout plan so that the user has a easier time following their schedule." +
-                         " The app supports every type of workout you need, but specifically Cardio and Strength!" +
-                         " The app is designed to be simple and user-friendly, and we try our hardest to make it just that!" +
-                         "You can register new workouts, edit them as well as search for workouts you've already made on this screen!" +
-                         "FitTrack has a mission to make it as easy as possible, and if you have any questions about the program you can Email us!";
+            string infoMessage = "FitTrack is an app developed by Nawid Rahim. It helps users create and manage their workout plans." +
+                                 " Users can add, edit, and search workouts with ease. For more information, email us at support@fittrack.com.";
 
             MessageBox.Show(infoMessage, "About FitTrack", MessageBoxButton.OK, MessageBoxImage.Information);
-
         }
 
         private void LogBtn_Click(object sender, RoutedEventArgs e)
@@ -187,6 +176,31 @@ namespace FitTrack.Windows
             var LogOutWindow = new LogOutWindow();
             LogOutWindow.ShowDialog();
 
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedWorkout = (Workout)WorkoutsList.SelectedItem;
+
+            if (selectedWorkout != null)
+            {
+                var editWorkoutWindow = new AddWorkoutWindow();
+                editWorkoutWindow.SetWorkoutDetails(selectedWorkout);
+
+                if (editWorkoutWindow.ShowDialog() == true && editWorkoutWindow.NewWorkout != null)
+                {
+                    // Uppdatera träningspasset
+                    var updatedWorkout = editWorkoutWindow.NewWorkout;
+                    var index = WorkoutList.IndexOf(selectedWorkout);
+                    WorkoutList[index] = updatedWorkout;
+
+                    RefreshAndFilterWorkoutList();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a workout to edit.");
+            }
         }
     }
 }

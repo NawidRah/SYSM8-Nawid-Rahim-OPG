@@ -24,7 +24,7 @@
         <!-- Knappar för att hantera träningspass -->
         <Button x:Name="Addbtn"  Content="Add Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,434,567,70"  Click="Addbtn_Click" />
         <Button x:Name="RemoveBtn"  Content="Remove Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,384,387,20"  Click="RemoveBtn_Click"/>
-        <Button x:Name="DetailsBtn" Content="Details" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,384,218,20" Click="DetailsBtn_Click"/>
+        <Button x:Name="DetailsBtn" Content="Details" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,367,74,137" Click="DetailsBtn_Click"/>
 
         <!-- Utloggningsknapp -->
         <Button x:Name="LogBtn" Content="Log Out" Background="Black" Height="20" Foreground="White" Width="100"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,36,444"  Click="LogBtn_Click"/>
@@ -44,6 +44,7 @@
         <Button x:Name="InfoBtn" Content="Info" Width="80" Height="30" HorizontalAlignment="Right" Margin="0,24,46,0" VerticalAlignment="Top" Background="Black" Foreground="White" Click="InfoBtn_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="599,138,0,0" TextWrapping="Wrap" Text="Choose type of Workout" VerticalAlignment="Top" Width="140" Height="15"/>
 
+        <Button x:Name="EditBtn" Content="Edit Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,434,216,70" Click="EditBtn_Click"/>
 
 
     </Grid>
