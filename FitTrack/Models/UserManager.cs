@@ -21,6 +21,7 @@ namespace FitTrack.Models
         // Metod för att lägga till användare.
         public static void AddUser(User user)
         {
+            user.Workouts ??= new List<Workout>(); // Initiera listan om den är null
             Users.Add(user);
         }
 
@@ -69,11 +70,12 @@ namespace FitTrack.Models
             }
         }
 
-        // Denna metod hämtar alla träningspass som finns i listan.
+        // Denna metod hämtar alla träningspass som finns i listan. + En debugging så att vi ser hur mycket det finns.
         public static List<Workout> GetAllWorkouts()
         {
-            // Detta är koden för att hämta alla träningspass av alla användare.
-            return Users.SelectMany(user => user.Workouts).ToList();
+            var allWorkouts = Users.SelectMany(user => user.Workouts ?? new List<Workout>()).ToList();
+            Console.WriteLine($"Total workouts found: {allWorkouts.Count}");
+            return allWorkouts;
         }
 
         // Denna metod hämtar träningspass baserat på användarnamnet.

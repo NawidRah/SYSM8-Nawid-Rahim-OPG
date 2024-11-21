@@ -20,11 +20,21 @@ namespace FitTrack.Windows
     /// </summary>
     public partial class AddWorkoutWindow : Window
     {
-        public Workout NewWorkout { get; private set; }
+        public Workout NewWorkout { get; private set; } //FIXA SÅ ATT ADDWORKOUTS LÄGGER TILL I WORKOUTSWINDOW!!
 
         public AddWorkoutWindow()
         {
             InitializeComponent();
+
+            if (WorkoutTypeComboBox.SelectedItem?.ToString() == "Cardio")
+            {
+                DistOrRepLABEL.Content = "Write the distance!";
+            }
+            else if (WorkoutTypeComboBox.SelectedItem?.ToString() == "Strength")
+            {
+                DistOrRepLABEL.Content = "Write the amount of repititions!";
+            }
+
         }
 
         // Sätter detaljer för ett träningspass när fönstret öppnas för redigering
@@ -44,6 +54,7 @@ namespace FitTrack.Windows
             }
         }
 
+        //Spara knapp för att lägga till träningen
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             if (WorkoutTypeComboBox.SelectedItem != null && !string.IsNullOrEmpty(WorkoutDetailsInput.Text))
@@ -124,4 +135,4 @@ namespace FitTrack.Windows
         }
 
     }
-}
+}  

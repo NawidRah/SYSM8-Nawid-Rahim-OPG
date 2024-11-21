@@ -28,27 +28,40 @@ namespace FitTrack.Windows
             InitializeComponent();
             User = user;
 
-            // Om användaren har användarnamnet ''Admin'' så har den speciella behörigheter. Såsom att kunna se alla träningar och modifiera dem.
+            // Kontrollerar så att användaren har Admin behörighet
             if (User.Username == "admin")
             {
-                WorkoutList = UserManager.GetAllWorkouts(); // Visar alla träningspass för Admin.
+                WorkoutList = UserManager.GetAllWorkouts();
+
+                // En debug för att se antalet träningar och bekräfta att det är Admin
+                Console.WriteLine($"Admin logged in. Total workouts: {WorkoutList.Count}");
             }
             else
             {
-                WorkoutList = User.Workouts ?? new List<Workout>(); // Visar bara träningspassen för den inloggade användaren.
+                WorkoutList = User.Workouts ?? new List<Workout>();
+
+                // En till debug för att godkänna att det är User som är inloggad, samt antal träningar för vanlig User.
+                Console.WriteLine($"User logged in. Workouts: {WorkoutList.Count}");
             }
 
-            RefreshAndFilterWorkoutList();
+            LoadAllWorkouts();
         }
 
 
         public void LoadAllWorkouts()
         {
-            WorkoutList = UserManager.GetAllWorkouts(); // Hämtar alla träningspass som finns.
+            WorkoutList = UserManager.GetAllWorkouts();
+
+            // Debug-logg
+            MessageBox.Show($"Workouts loaded: {WorkoutList.Count} workouts available.");
+
             RefreshAndFilterWorkoutList();
         }
-        // Metod för att ladda träningspass från användaren
-        public void LoadWorkoutsForUser(User user)
+
+    
+
+    // Metod för att ladda träningspass från användaren
+    public void LoadWorkoutsForUser(User user)
         {
             if (user.Workouts != null && user.Workouts.Any())
             {
@@ -67,6 +80,8 @@ namespace FitTrack.Windows
         // Uppdaterar träningslistan med redigeringar samt filtrerar träningarna.
         private void RefreshAndFilterWorkoutList()
         {
+            WorkoutsList.ItemsSource = null; // Tömmer först listan så att det korrekt filtreras
+            WorkoutsList.ItemsSource = WorkoutList; // Återställer listan så att det uppdateras korrekt.
             FilterWorkouts();
         }
 
@@ -76,10 +91,15 @@ namespace FitTrack.Windows
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
             var addWorkoutWindow = new AddWorkoutWindow();
-
+            
+            //Om AddWorkoutWindow är öppen som dialog, och NewWorkout inte är null så läggs den nya träningen in!
             if (addWorkoutWindow.ShowDialog() == true && addWorkoutWindow.NewWorkout != null)
             {
                 Workout newWorkout = addWorkoutWindow.NewWorkout;
+
+                // En debug logg för att se till att träningen läggs till!
+                Console.WriteLine($"Adding new workout: {newWorkout.Name}");
+
                 WorkoutList.Add(newWorkout);
                 RefreshAndFilterWorkoutList();
             }
@@ -143,9 +163,11 @@ namespace FitTrack.Windows
 
             var filteredWorkouts = WorkoutList.Where(workout =>
                 (string.IsNullOrEmpty(searchText) ||
-                 (workout.Name != null && workout.Name.ToLower().Contains(searchText)) ||
-                 (workout.Notes != null && workout.Notes.ToLower().Contains(searchText))) &&
+                 (workout.Name != null && workout.Name.ToLower().Contains(searchText))) &&
                 (selectedType == "All" || workout.Type == selectedType)).ToList();
+
+            // Debug-logg
+            Console.WriteLine($"Filtered workouts count: {filteredWorkouts.Count}");
 
             WorkoutsList.ItemsSource = filteredWorkouts;
         }

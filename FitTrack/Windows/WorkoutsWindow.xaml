@@ -13,24 +13,32 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
+        <!-- Förklaring så att knappar osv, inte rör sig!-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <!--  -->
-        <Label Content="Your Workouts" FontSize="24" FontWeight="UltraBold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="321,18,0,0" VerticalContentAlignment="Stretch" BorderThickness="5" BorderBrush="Black"/>
+        <Label Content="Your Workouts" FontSize="24" FontWeight="UltraBold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="321,18,0,0" VerticalContentAlignment="Stretch" BorderThickness="5" BorderBrush="Black" Grid.Column="0" Grid.Row="0"/>
 
 
         <!-- Lista för att visa träningspass -->
         <ListBox x:Name="WorkoutsList" HorizontalAlignment="Left" Margin="83,70,0,107" Width="476" DisplayMemberPath="Name" />
 
         <!-- Knappar för att hantera träningspass -->
-        <Button x:Name="Addbtn"  Content="Add Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,434,567,70"  Click="Addbtn_Click" />
-        <Button x:Name="RemoveBtn"  Content="Remove Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,384,387,20"  Click="RemoveBtn_Click"/>
-        <Button x:Name="DetailsBtn" Content="Details" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,367,74,137" Click="DetailsBtn_Click"/>
+        <Button x:Name="Addbtn"  Content="Add Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,434,567,70"  Click="Addbtn_Click" Grid.Column="0" Grid.Row="0" />
+        <Button x:Name="RemoveBtn"  Content="Remove Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,384,387,20"  Click="RemoveBtn_Click" Grid.Column="0" Grid.Row="0"/>
+        <Button x:Name="DetailsBtn" Content="Details" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,351,25,153" Click="DetailsBtn_Click" RenderTransformOrigin="1.002,0.365" Grid.Column="0" Grid.Row="0"/>
 
         <!-- Utloggningsknapp -->
-        <Button x:Name="LogBtn" Content="Log Out" Background="Black" Height="20" Foreground="White" Width="100"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,36,444"  Click="LogBtn_Click"/>
+        <Button x:Name="LogBtn" Content="Log Out" Background="Black" Height="20" Foreground="White" Width="100"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,36,444"  Click="LogBtn_Click" Grid.Column="0" Grid.Row="0"/>
 
         <!-- TextBox för att söka efter träningspass -->
-        <TextBox x:Name="SearchTextBox" Text="Search workouts..." Width="190" Height="30" HorizontalAlignment="Left" Margin="83,33,0,469" KeyUp="SearchTextBox_KeyUp"/>
+        <TextBox x:Name="SearchTextBox" Text="Search workouts..." Width="190" Height="30" HorizontalAlignment="Left" Margin="83,33,0,469" KeyUp="SearchTextBox_KeyUp" Grid.Column="0" Grid.Row="0"/>
 
         <!-- ComboBox för att välja typ av träning -->
         <ComboBox x:Name="WorkoutTypeComboBox" HorizontalAlignment="Left" Margin="564,159,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="WorkoutTypeComboBox_SelectionChanged">
@@ -41,10 +49,10 @@
 
 
         <!-- info knapp -->
-        <Button x:Name="InfoBtn" Content="Info" Width="80" Height="30" HorizontalAlignment="Right" Margin="0,24,46,0" VerticalAlignment="Top" Background="Black" Foreground="White" Click="InfoBtn_Click"/>
+        <Button x:Name="InfoBtn" Content="Info" Width="80" Height="30" HorizontalAlignment="Right" Margin="0,24,46,0" VerticalAlignment="Top" Background="Black" Foreground="White" Click="InfoBtn_Click" Grid.Column="0" Grid.Row="0"/>
         <TextBlock HorizontalAlignment="Left" Margin="599,138,0,0" TextWrapping="Wrap" Text="Choose type of Workout" VerticalAlignment="Top" Width="140" Height="15"/>
 
-        <Button x:Name="EditBtn" Content="Edit Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,434,216,70" Click="EditBtn_Click"/>
+        <Button x:Name="EditBtn" Content="Edit Workout" Width="150" Height="30" HorizontalAlignment="Right" Margin="0,434,216,70" Click="EditBtn_Click" Grid.Column="0" Grid.Row="0"/>
 
 
     </Grid>

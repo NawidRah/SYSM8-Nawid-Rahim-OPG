@@ -14,12 +14,21 @@
     </Window.Background>
 
     <Grid>
-
+        
+        <!-- Grid förklaringar så att text inte rör sig!-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <!-- Titel -->
-        <Label Content="Workout Details" FontSize="20" FontWeight="UltraBold" HorizontalAlignment="Center" Margin="0,20,0,467" BorderThickness="5" BorderBrush="Black" Width="186" Height="50"/>
+        <Label Content="Workout Details" FontSize="20" FontWeight="UltraBold" HorizontalAlignment="Center" Margin="0,20,0,467" BorderThickness="5" BorderBrush="Black" Width="186" Height="50" Grid.Row="0" Grid.Column="0"/>
 
         <!-- Datum -->
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="400" Height="300" Margin="34,67,0,0">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="400" Height="300" Margin="34,67,0,0" Grid.Row="0" Grid.Column="0">
             <Label Content="Date:" FontWeight="Bold" HorizontalAlignment="Center"/>
             <DatePicker x:Name="WorkoutDateInput" Height="30" SelectedDate="{Binding Date}" />
 
@@ -39,7 +48,7 @@
 
         <!-- Knappar för att redigera och spara -->
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="504,102,0,0" Height="250" Width="158">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="504,102,0,0" Height="250" Width="158" Grid.Row="0" Grid.Column="0">
             <Button x:Name="EditBtn" Content="Edit" Width="80" Height="62" Margin="5" Click="EditBtn_Click" Background="Black" Foreground="White"/>
             <Button x:Name="SaveBtn" Content="Save" Width="80" Height="59" Margin="5" Click="SaveBtn_Click" Background="Black" Foreground="White"/>
 
