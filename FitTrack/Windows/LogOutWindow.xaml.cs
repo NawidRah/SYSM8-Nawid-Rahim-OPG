@@ -27,6 +27,7 @@ namespace FitTrack.Windows
         private void NoBTN_Click(object sender, RoutedEventArgs e)
         {
 
+            
 
             this.Close();
 
@@ -36,15 +37,18 @@ namespace FitTrack.Windows
         {
             MessageBox.Show("Thanks for using FitTrack! You are logged out!");
 
+            // Stänger allting förutom MainWindow
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != this)  // Exclude the current window (LogOutWindow)
+                {
+                    window.Close();
+                }
+            }
+
+            // Visa main fönstret
             var mainWindow = new MainWindow();
-
             mainWindow.Show();
-
-            this.Close();
-
-
-
-            
         }
     }
 }

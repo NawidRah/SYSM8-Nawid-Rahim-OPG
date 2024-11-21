@@ -52,16 +52,15 @@ namespace FitTrack.Windows
         {
             WorkoutList = UserManager.GetAllWorkouts();
 
-            // Debug-logg
-            MessageBox.Show($"Workouts loaded: {WorkoutList.Count} workouts available.");
-
-            RefreshAndFilterWorkoutList();
+            WorkoutsList.ItemsSource = null; // Nollställ
+            WorkoutsList.ItemsSource = WorkoutList; // Sätt datakällan
+            WorkoutsList.Items.Refresh(); // Uppdatera UI
         }
 
-    
 
-    // Metod för att ladda träningspass från användaren
-    public void LoadWorkoutsForUser(User user)
+
+        // Metod för att ladda träningspass från användaren
+        public void LoadWorkoutsForUser(User user)
         {
             if (user.Workouts != null && user.Workouts.Any())
             {
@@ -76,13 +75,19 @@ namespace FitTrack.Windows
         }
 
 
-
-        // Uppdaterar träningslistan med redigeringar samt filtrerar träningarna.
-        private void RefreshAndFilterWorkoutList()
+        public void RefreshWorkouts()
         {
             WorkoutsList.ItemsSource = null; // Tömmer först listan så att det korrekt filtreras
             WorkoutsList.ItemsSource = WorkoutList; // Återställer listan så att det uppdateras korrekt.
+        }
+        // Uppdaterar träningslistan med redigeringar samt filtrerar träningarna.
+        private void RefreshAndFilterWorkoutList()
+        {
+
+            RefreshWorkouts();
             FilterWorkouts();
+
+
         }
 
 
@@ -101,7 +106,7 @@ namespace FitTrack.Windows
                 Console.WriteLine($"Adding new workout: {newWorkout.Name}");
 
                 WorkoutList.Add(newWorkout);
-                RefreshAndFilterWorkoutList();
+                RefreshWorkouts();
             }
             else
             {
@@ -166,15 +171,39 @@ namespace FitTrack.Windows
                  (workout.Name != null && workout.Name.ToLower().Contains(searchText))) &&
                 (selectedType == "All" || workout.Type == selectedType)).ToList();
 
-            // Debug-logg
+            // Debug logg som visar hur mycket som filtrerats.
             Console.WriteLine($"Filtered workouts count: {filteredWorkouts.Count}");
 
             WorkoutsList.ItemsSource = filteredWorkouts;
+
+            RefreshAndFilterWorkoutList();
         }
 
         private void WorkoutTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            FilterWorkouts();
+            // Get the selected item from the ComboBox and convert it to a string (e.g., "Cardio")
+            string selectedType = WorkoutTypeComboBox.SelectedItem?.ToString();
+
+            // Check if the selected type is not null or empty
+            if (!string.IsNullOrEmpty(selectedType))
+            {
+                // Use LINQ to filter the WorkoutList based on the selected type
+                var filteredWorkouts = WorkoutList.Where(workout => workout.Type == selectedType).ToList();
+
+                // Update the ItemsSource of WorkoutsList to show only the filtered workouts
+                WorkoutsList.ItemsSource = filteredWorkouts;
+
+                // Refresh the list
+                WorkoutsList.Items.Refresh();
+            }
+            else
+            {
+                // If no filter is selected, show all workouts
+                WorkoutsList.ItemsSource = WorkoutList;
+
+                // Refresh the list
+                WorkoutsList.Items.Refresh();
+            }
         }
 
         private void SearchTextBox_KeyUp(object sender, KeyEventArgs e)
@@ -194,7 +223,7 @@ namespace FitTrack.Windows
 
         private void LogBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            
             var LogOutWindow = new LogOutWindow();
             LogOutWindow.ShowDialog();
 

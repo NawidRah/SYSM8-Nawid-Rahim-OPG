@@ -9,7 +9,7 @@
     <Window.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="Crimson" Offset="0.0" />
-            <GradientStop Color="White" Offset="2" />
+            <GradientStop Color="Black" Offset="2" />
         </LinearGradientBrush>
     </Window.Background>
 
@@ -17,28 +17,39 @@
 
     <Grid>
 
+        <!-- Förklaring så att knappar osv, inte rör sig!-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
         <!-- Titel -->
-        <Label Content="Reset Your Password" Width="210" Height="40" FontSize="18" FontWeight="UltraBold" BorderThickness="5" BorderBrush="Black" Background="White" 
-               HorizontalAlignment="Center" Margin="0,90,0,395"/>
+        <Label Content="Reset Your Password" Width="auto" Height="auto" FontSize="18" FontWeight="UltraBold" BorderThickness="5" BorderBrush="Black" Background="White" 
+               HorizontalAlignment="Center" Margin="0,90,0,395" Grid.Column="0" Grid.Row="0"/>
 
 
-        <Label Content="Username:" Width="100" Height="30" HorizontalAlignment="Left" Margin="130,277,0,227" FontWeight="UltraBold" Background="White" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Username:" Width="100" Height="30" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="130,277,0,227" FontWeight="UltraBold" Background="White" BorderThickness="1" BorderBrush="Black"/>
         <TextBox x:Name="UsernameInput" Width="300" Height="30" Margin="30,262,0,142" 
-                 HorizontalAlignment="Left" Foreground="Gray" />
+                 HorizontalAlignment="Left" Foreground="Gray" Grid.Column="0" Grid.Row="0" />
 
         <!-- säkerhets fråga -->
-        <Label Content="Select a security question:" Width="170" Height="30" HorizontalAlignment="Left" Margin="491,234,0,268" Background="White" FontWeight="UltraBold" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Select a security question:" Width="170" Grid.Column="0" Grid.Row="0" Height="30" HorizontalAlignment="Left" Margin="491,234,0,268" Background="White" FontWeight="UltraBold" BorderThickness="1" BorderBrush="Black"/>
         <ComboBox x:Name="SecurityQuestionComboBox" Width="300" Height="30" Margin="418,222,0,182" 
-                  HorizontalAlignment="Left">
+                  HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">
             <ComboBoxItem Content="What is your favorite color?"/>
             <ComboBoxItem Content="What was the name of your first pet?"/>
             <ComboBoxItem Content="What is your mother's maiden name?"/>
         </ComboBox>
 
         <!-- säkerhets svar-->
-        <Label Content="Security Question Answer:" Width="170" Height="30" HorizontalAlignment="Left" Margin="491,311,0,187" Background="White" FontWeight="UltraBold" BorderThickness="1" BorderBrush="Black"/>
+        <Label Content="Security Question Answer:" Width="170" Height="30"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="491,311,0,187" Background="White" FontWeight="UltraBold" BorderThickness="1" BorderBrush="Black"/>
         <TextBox x:Name="SecurityAnswerInput" Width="300" Height="30" Margin="415,302,0,102" 
-                 HorizontalAlignment="Left" Foreground="Gray" />
+                 HorizontalAlignment="Left" Foreground="Gray" Grid.Column="0" Grid.Row="0" />
 
         <!-- Fel meddelande -->
         <TextBlock x:Name="MessageTextBlock" Foreground="Red" FontSize="12" 
@@ -46,7 +57,7 @@
 
         <Button x:Name="SubmitBtn" Content="Submit" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,439,0,0" Background="White" Click="SubmitBtn_Click" BorderThickness="1" BorderBrush="Black"/>
 
-        <TextBlock x:Name="question" HorizontalAlignment="Left" Margin="10,90,0,0" FontWeight="Bold"/>
+        <TextBlock x:Name="question" HorizontalAlignment="Left" Margin="10,90,0,0" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
 
 
 

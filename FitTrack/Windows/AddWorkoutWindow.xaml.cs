@@ -26,16 +26,10 @@ namespace FitTrack.Windows
         {
             InitializeComponent();
 
-            if (WorkoutTypeComboBox.SelectedItem?.ToString() == "Cardio")
-            {
-                DistOrRepLABEL.Content = "Write the distance!";
-            }
-            else if (WorkoutTypeComboBox.SelectedItem?.ToString() == "Strength")
-            {
-                DistOrRepLABEL.Content = "Write the amount of repititions!";
-            }
-
         }
+
+
+       
 
         // Sätter detaljer för ett träningspass när fönstret öppnas för redigering
         public void SetWorkoutDetails(Workout workout)
