@@ -37,19 +37,6 @@
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="66,198,0,0" TextWrapping="Wrap" Text="Choose type of workout!" FontSize="15" VerticalAlignment="Top" Height="Auto" Width="Auto" FontWeight="UltraBold" Grid.Row="0"/>
 
-
-
-
-        <!-- Detaljer om hur träningspasset ska gå till -->
-        <Button x:Name="DetailsBtn"
-        Content="Details"
-        Width="120"
-        Height="30"
-        HorizontalAlignment="Center"
-        Margin="0,357,0,0"
-        VerticalAlignment="Top"
-        Click="DetailsBtn_Click" Grid.Column="0" Grid.Row="0"/>
-
         <TextBox x:Name="WorkoutDetailsInput" Width="200" Height="30" Margin="66,292,0,112" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" />
         <!-- Fält att beskriva träningen -->
         <Label x:Name="DistOrRepLABEL"  Content="Write the amount of Repetitions/Distance" FontSize="15" HorizontalAlignment="Left" Margin="10,314,0,190" Width="Auto" Height="30" FontWeight="UltraBold" Grid.Column="0" Grid.Row="0"/>

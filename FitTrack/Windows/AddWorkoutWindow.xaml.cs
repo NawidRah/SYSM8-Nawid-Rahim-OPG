@@ -29,7 +29,7 @@ namespace FitTrack.Windows
         }
 
 
-       
+
 
         // Sätter detaljer för ett träningspass när fönstret öppnas för redigering
         public void SetWorkoutDetails(Workout workout)
@@ -95,38 +95,5 @@ namespace FitTrack.Windows
             this.DialogResult = false;
             this.Close();
         }
-
-        private void DetailsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // Kontrollera om en träningstyp har valts
-            if (WorkoutTypeComboBox.SelectedItem is ComboBoxItem selectedType)
-            {
-                string selectedTypeName = selectedType.Content.ToString();
-
-                switch (selectedTypeName)
-                {
-                    case "Cardio":
-                        MessageBox.Show("Cardio workouts focus on distance-based activities like running or cycling. Input distance covered in kilometers or miles.",
-                                        "Workout Type Details", MessageBoxButton.OK, MessageBoxImage.Information);
-                        break;
-
-                    case "Strength":
-                        MessageBox.Show("Strength workouts focus on repetitions-based exercises like push-ups or weightlifting. Input the number of reps completed.",
-                                        "Workout Type Details", MessageBoxButton.OK, MessageBoxImage.Information);
-                        break;
-
-                    default:
-                        MessageBox.Show("Please select a workout type to view more details.",
-                                        "Workout Type Details", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        break;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a workout type to view more details.",
-                                "Workout Type Details", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
-
     }
-}  
+}
