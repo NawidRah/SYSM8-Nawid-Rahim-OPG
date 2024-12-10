@@ -19,7 +19,7 @@
     <Grid>
 
         <!-- Titel -->
-        <Label Content="Edit User Details" Width="160" Height="40" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="104,49,0,440" Background="Gray" BorderBrush="Black" BorderThickness="2"/>
+        <Label Content="Edit User Details" Width="160" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"  Background="Gray" BorderBrush="Black" BorderThickness="2" Margin="292,76,0,0" Grid.Row="0"/>
 
 
         <!-- Nuvarande användarnamn -->

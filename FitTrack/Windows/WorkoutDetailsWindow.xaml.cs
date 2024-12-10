@@ -30,8 +30,9 @@ namespace FitTrack.Windows
             CurrentWorkout = workout;
             LoadWorkoutDetails();
         }
-
-
+        
+        
+      
         // Metod för att fylla i träningsdetaljer i fönstret
         private void LoadWorkoutDetails()
         {
@@ -75,6 +76,8 @@ namespace FitTrack.Windows
             WorkoutTypeInput.IsReadOnly = true;
             WorkoutDetailsInput.IsReadOnly = true;
             CaloriesBurnedInput.IsReadOnly = true;
+
+           
 
             MessageBox.Show("Workout details updated successfully!");
             this.Close();

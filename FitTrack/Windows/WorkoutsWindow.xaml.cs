@@ -80,15 +80,8 @@ namespace FitTrack.Windows
             WorkoutsList.ItemsSource = null; // Tömmer först listan så att det korrekt filtreras
             WorkoutsList.ItemsSource = WorkoutList; // Återställer listan så att det uppdateras korrekt.
         }
-        // Uppdaterar träningslistan med redigeringar samt filtrerar träningarna.
-        private void RefreshAndFilterWorkoutList()
-        {
-
-            RefreshWorkouts();
-            FilterWorkouts();
-
-
-        }
+       
+        
 
 
 
@@ -133,83 +126,41 @@ namespace FitTrack.Windows
                 detailsWindow.ShowDialog();
 
             }
+            else
+            {
+                MessageBox.Show("Nothing is selected!");
+            }
             
         }
 
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
         {
+            // Kontrollera om det finns ett val som gjorts
+            var selectedWorkout = WorkoutsList.SelectedItem as Workout;
+            if (selectedWorkout != null)
             {
-                // Kontrollerar om det finns ett val som gjorts
-                var selectedWorkout = (Workout)WorkoutsList.SelectedItem;
-                if (selectedWorkout != null)
+                if (WorkoutList.Contains(selectedWorkout))
                 {
-                    // Tar bort eventuella valet.
+                    // Ta bort det valda träningspasset
                     WorkoutList.Remove(selectedWorkout);
 
-                    // Listan uppdateras så att det blir vad användaren valt.
-                    RefreshAndFilterWorkoutList();
+                    // Uppdatera listan
+                    RefreshWorkouts();
 
                     MessageBox.Show("Workout removed successfully.");
                 }
                 else
                 {
-                    // Om en träning inte valts så kommet ett felmeddelande
+                    // Om inget träningspass är valt, visa felmeddelande
                     MessageBox.Show("Please select a workout to remove.");
                 }
             }
-
         }
 
-        //Filtrera träningar
-        private void FilterWorkouts()
-        {
-            string searchText = SearchTextBox.Text.ToLower();
-            string selectedType = (WorkoutTypeComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? "All";
 
-            var filteredWorkouts = WorkoutList.Where(workout =>
-                (string.IsNullOrEmpty(searchText) ||
-                 (workout.Name != null && workout.Name.ToLower().Contains(searchText))) &&
-                (selectedType == "All" || workout.Type == selectedType)).ToList();
 
-            // Debug logg som visar hur mycket som filtrerats.
-            Console.WriteLine($"Filtered workouts count: {filteredWorkouts.Count}");
 
-            WorkoutsList.ItemsSource = filteredWorkouts;
-
-            RefreshAndFilterWorkoutList();
-        }
-
-        private void WorkoutTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Get the selected item from the ComboBox and convert it to a string (e.g., "Cardio")
-            string selectedType = WorkoutTypeComboBox.SelectedItem?.ToString();
-
-            // Check if the selected type is not null or empty
-            if (!string.IsNullOrEmpty(selectedType))
-            {
-                // Use LINQ to filter the WorkoutList based on the selected type
-                var filteredWorkouts = WorkoutList.Where(workout => workout.Type == selectedType).ToList();
-
-                // Update the ItemsSource of WorkoutsList to show only the filtered workouts
-                WorkoutsList.ItemsSource = filteredWorkouts;
-
-                // Refresh the list
-                WorkoutsList.Items.Refresh();
-            }
-            else
-            {
-                // If no filter is selected, show all workouts
-                WorkoutsList.ItemsSource = WorkoutList;
-
-                // Refresh the list
-                WorkoutsList.Items.Refresh();
-            }
-        }
-
-        private void SearchTextBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            FilterWorkouts();
-        }
+      
 
 
         //Ändrade info texten så att den blev kortare, samt mer tydlig och professionell.
@@ -245,13 +196,23 @@ namespace FitTrack.Windows
                     var index = WorkoutList.IndexOf(selectedWorkout);
                     WorkoutList[index] = updatedWorkout;
 
-                    RefreshAndFilterWorkoutList();
+                    RefreshWorkouts();
                 }
             }
             else
             {
                 MessageBox.Show("Please select a workout to edit.");
             }
+        }
+
+        //User knapp som tar användaren till UserDetails
+        private void UserBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            var userdetails = new UserDetailsWindow(User);
+
+            userdetails.ShowDialog();
+
         }
     }
 }

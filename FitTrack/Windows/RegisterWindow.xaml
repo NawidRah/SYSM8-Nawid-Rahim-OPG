@@ -19,7 +19,7 @@
 
 
         <!-- Titel! -->
-        <Label Content="Register New User" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,55,0,343" Width="172" Height="40"/>
+        <Label Content="Register New User" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,35,0,359" Width="172" Height="40"/>
 
         <!-- Användarnamns input -->
         <TextBox x:Name="UsernameInput" Width="200" Height="30" Margin="0,96,0,0" 

@@ -40,15 +40,14 @@ namespace FitTrack.Windows
             // Stänger allting förutom MainWindow
             foreach (Window window in Application.Current.Windows)
             {
-                if (window != this)  // Exclude the current window (LogOutWindow)
-                {
-                    window.Close();
-                }
+                window.Hide();
             }
 
             // Visa main fönstret
             var mainWindow = new MainWindow();
             mainWindow.Show();
+
+            Application.Current.MainWindow = mainWindow;
         }
     }
 }

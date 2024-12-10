@@ -99,13 +99,7 @@ namespace FitTrack.Windows
         }
 
 
-        //Glömt lösenord knappen leder till ''Forgot Password'' för att återställa lösenord.
-        private void ForgotPassBTN_Click(object sender, RoutedEventArgs e)
-        {
-            var resetPasswordWindow = new ResetPassWindow();
-            resetPasswordWindow.ShowDialog();
-
-        }
+        
 
         private void UsernameInput_MouseEnter(object sender, MouseEventArgs e)
         {

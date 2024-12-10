@@ -28,14 +28,14 @@
 
         <!-- Titel -->
         <Label Content="Add a Workout" FontSize="30" FontWeight="Bold" 
-                       HorizontalAlignment="Center" Margin="0,198,0,291" Width="236" Height="45" Grid.Column="0" Grid.Row="0"/>
+                       HorizontalAlignment="Center" Margin="0,138,0,351" Width="236" Height="45" Grid.Row="0"/>
 
         <!-- Välj typ av träningspass (Cardio eller Strength) -->
-        <ComboBox x:Name="WorkoutTypeComboBox" Width="200" Height="30" Margin="0,243,0,161" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0">
+        <ComboBox x:Name="WorkoutTypeComboBox" Width="200" Height="30" Margin="57,237,0,267" HorizontalAlignment="Left" Grid.Row="0">
             <ComboBoxItem Content="Cardio"/>
             <ComboBoxItem Content="Strength"/>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Center" Margin="0,257,0,0" TextWrapping="Wrap" Text="Choose type of workout!" FontSize="15" VerticalAlignment="Top" Height="Auto" Width="Auto" FontWeight="UltraBold" Grid.Row="0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,198,0,0" TextWrapping="Wrap" Text="Choose type of workout!" FontSize="15" VerticalAlignment="Top" Height="Auto" Width="Auto" FontWeight="UltraBold" Grid.Row="0"/>
 
 
 
